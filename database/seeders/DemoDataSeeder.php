@@ -12,10 +12,9 @@ class DemoDataSeeder extends Seeder
 {
     public function run(): void
     {
-        // Cliente demo
-        $cliente = User::create([
+        // Clientes demo
+        $cliente = User::firstOrCreate(['email' => 'maria@test.com'], [
             'name' => 'María García',
-            'email' => 'maria@test.com',
             'password' => bcrypt('password'),
             'role' => 'cliente',
             'cedula' => 'V-12345678',
@@ -23,9 +22,8 @@ class DemoDataSeeder extends Seeder
             'direccion' => 'Av. Independencia, Edif. Central, Piso 3, Trujillo',
         ]);
 
-        $cliente2 = User::create([
+        $cliente2 = User::firstOrCreate(['email' => 'carlos@test.com'], [
             'name' => 'Carlos Mendoza',
-            'email' => 'carlos@test.com',
             'password' => bcrypt('password'),
             'role' => 'cliente',
             'cedula' => 'V-87654321',
@@ -33,7 +31,7 @@ class DemoDataSeeder extends Seeder
             'direccion' => 'Urb. Las Flores, Calle 5, Casa 12, Trujillo',
         ]);
 
-        // Más productos
+        // Más productos (solo si no existen)
         $nuevos = [
             ['nombre' => 'Anillo de plata artesanal', 'categoria_id' => 4, 'precio' => 19.99, 'stock' => 10, 'stock_minimo' => 3, 'descripcion' => 'Anillo de plata 925 con diseño artesanal andino.'],
             ['nombre' => 'Collar de mostacillas arcoíris', 'categoria_id' => 1, 'precio' => 14.50, 'stock' => 18, 'stock_minimo' => 5, 'descripcion' => 'Collar colorido de mostacillas con patrón arcoíris.'],
@@ -50,14 +48,19 @@ class DemoDataSeeder extends Seeder
         ];
 
         foreach ($nuevos as $p) {
-            Producto::create($p);
+            Producto::firstOrCreate(['nombre' => $p['nombre']], $p);
         }
 
-        // Movimientos de inventario (entradas)
+        // Solo crear movimientos y ventas si no hay ya registros
+        if (MovimientoInventario::count() > 0 || Venta::count() > 0) {
+            return;
+        }
+
         $admin = User::where('role', 'admin')->first();
         $productos = Producto::all();
         $motivos = ['Compra a proveedor', 'Reabastecimiento de tienda', 'Nuevo lote de producción', 'Devolución de cliente'];
 
+        // Movimientos de entrada para cada producto
         foreach ($productos as $producto) {
             MovimientoInventario::create([
                 'producto_id' => $producto->id,
@@ -101,10 +104,6 @@ class DemoDataSeeder extends Seeder
             ['producto_id' => 7, 'cantidad' => 1, 'precio_unitario' => 5.00, 'subtotal' => 5.00, 'created_at' => now()->subDays(15)],
             ['producto_id' => 3, 'cantidad' => 2, 'precio_unitario' => 6.99, 'subtotal' => 13.98, 'created_at' => now()->subDays(15)],
         ]);
-        // Actualizar stock por venta
-        Producto::find(1)->decrement('stock', 2);
-        Producto::find(7)->decrement('stock', 1);
-        Producto::find(3)->decrement('stock', 2);
 
         $venta2 = Venta::create([
             'user_id' => $cliente2->id,
@@ -118,9 +117,6 @@ class DemoDataSeeder extends Seeder
             ['producto_id' => 2, 'cantidad' => 2, 'precio_unitario' => 25.00, 'subtotal' => 50.00, 'created_at' => now()->subDays(8)],
             ['producto_id' => 13, 'cantidad' => 1, 'precio_unitario' => 12.50, 'subtotal' => 12.50, 'created_at' => now()->subDays(8)],
         ]);
-        Producto::find(4)->decrement('stock', 1);
-        Producto::find(2)->decrement('stock', 2);
-        Producto::find(13)->decrement('stock', 1);
 
         $venta3 = Venta::create([
             'user_id' => $cliente->id,
@@ -132,8 +128,6 @@ class DemoDataSeeder extends Seeder
             ['producto_id' => 8, 'cantidad' => 1, 'precio_unitario' => 28.00, 'subtotal' => 28.00, 'created_at' => now()->subDay()],
             ['producto_id' => 20, 'cantidad' => 1, 'precio_unitario' => 35.00, 'subtotal' => 35.00, 'created_at' => now()->subDay()],
         ]);
-        Producto::find(8)->decrement('stock', 1);
-        Producto::find(20)->decrement('stock', 1);
 
         $venta4 = Venta::create([
             'user_id' => $cliente2->id,
@@ -146,8 +140,6 @@ class DemoDataSeeder extends Seeder
             ['producto_id' => 5, 'cantidad' => 1, 'precio_unitario' => 35.00, 'subtotal' => 35.00, 'created_at' => now()->subDays(3)],
             ['producto_id' => 16, 'cantidad' => 1, 'precio_unitario' => 12.50, 'subtotal' => 12.50, 'created_at' => now()->subDays(3)],
         ]);
-        Producto::find(5)->decrement('stock', 1);
-        Producto::find(16)->decrement('stock', 1);
 
         $venta5 = Venta::create([
             'user_id' => 1,
@@ -159,6 +151,5 @@ class DemoDataSeeder extends Seeder
             'producto_id' => 21, 'cantidad' => 1, 'precio_unitario' => 55.00, 'subtotal' => 55.00,
             'created_at' => now()->subDays(2),
         ]);
-        Producto::find(21)->decrement('stock', 1);
     }
 }

@@ -10,9 +10,8 @@ class AdminUserSeeder extends Seeder
 {
     public function run(): void
     {
-        User::create([
+        User::firstOrCreate(['email' => 'admin@hechizos.com'], [
             'name' => 'Administrador',
-            'email' => 'admin@hechizos.com',
             'password' => Hash::make('password'),
             'cedula' => 'V-12345678',
             'telefono' => '+58 412-1234567',
