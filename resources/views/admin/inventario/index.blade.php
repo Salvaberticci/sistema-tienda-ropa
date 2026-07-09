@@ -45,7 +45,7 @@
                             </td>
                             <td class="table-cell text-center font-semibold">{{ $movimiento->cantidad }}</td>
                             <td class="table-cell text-beige-500 max-w-[200px] truncate">{{ $movimiento->motivo }}</td>
-                            <td class="table-cell text-right text-beige-500">{{ $movimiento->user->name }}</td>
+                            <td class="table-cell text-right text-beige-500">{{ $movimiento->usuario->name }}</td>
                         </tr>
                     @empty
                         <tr>
