@@ -17,31 +17,38 @@
                     $ingresosHoy = \App\Models\Venta::whereDate('created_at', today())->sum('total');
                     $productosBajoStock = \App\Models\Producto::stockBajo()->count();
                     $ultimasVentas = \App\Models\Venta::with('user')->latest()->take(5)->get();
-                    $cierrePendienteFecha = null;
-                    $cierrePendienteFormateada = null;
-                    $ultimoCierre = \App\Models\CierreDiario::latest('fecha')->first();
-                    $fechaPendiente = $ultimoCierre ? $ultimoCierre->fecha->addDay() : today()->subDay();
-                    if (!$fechaPendiente->isToday() && \App\Models\Venta::whereDate('created_at', $fechaPendiente)->where('estado', '!=', 'cancelado')->count() > 0) {
-                        $cierrePendienteFecha = $fechaPendiente->format('Y-m-d');
-                        $cierrePendienteFormateada = $fechaPendiente->isoFormat('D [de] MMMM [de] YYYY');
-                    }
+                    $hoyCierre = \App\Models\CierreDiario::where('fecha', today())->first();
+                    $cierreHoy = $hoyCierre ? $hoyCierre->total_ventas : 0;
                 @endphp
 
-                @if ($cierrePendienteFecha)
-                    <div class="mb-6 px-5 py-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-between gap-4" x-data="{ oculto: false }" x-show="!oculto">
-                        <div class="flex items-center gap-3">
-                            <svg class="w-6 h-6 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/>
-                            </svg>
-                            <div>
-                                <p class="text-sm font-semibold text-amber-800">Cierre pendiente</p>
-                                <p class="text-xs text-amber-700 mt-0.5">El día {{ $cierrePendienteFormateada }} no tiene cierre. ¿Deseas cerrar el día?</p>
-                            </div>
+                <div class="mb-6 px-5 py-4 bg-gradient-to-r from-beige-100 to-beige-200/60 border border-beige-300 rounded-2xl flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-beige-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <div>
+                            <p class="text-sm font-semibold text-beige-800">
+                                @if ($hoyCierre)
+                                    Cierre de hoy completado — ${{ number_format($hoyCierre->total_ventas, 2) }}
+                                @else
+                                    Cierre del día — ${{ number_format($ingresosHoy, 2) }} en {{ $ventasHoy }} venta(s)
+                                @endif
+                            </p>
+                            <p class="text-xs text-beige-600 mt-0.5">{{ now()->isoFormat('dddd D [de] MMMM [de] YYYY') }}</p>
                         </div>
-                        <div class="flex items-center gap-2 shrink-0">
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0">
+                        @if ($hoyCierre)
+                            <a href="{{ route('admin.cierres.download', $hoyCierre) }}" class="btn-primary btn-xs">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                                Descargar PDF
+                            </a>
+                        @else
                             <form method="POST" action="{{ route('admin.cierres.store') }}">
                                 @csrf
-                                <input type="hidden" name="fecha" value="{{ $cierrePendienteFecha }}">
+                                <input type="hidden" name="fecha" value="{{ now()->format('Y-m-d') }}">
                                 <button type="submit" class="btn-primary btn-xs">
                                     <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -49,10 +56,10 @@
                                     Cerrar día
                                 </button>
                             </form>
-                            <button @click="oculto = true" class="btn-secondary btn-xs">Ahora no</button>
-                        </div>
+                        @endif
+                        <a href="{{ route('admin.cierres.index') }}" class="btn-secondary btn-xs">Historial</a>
                     </div>
-                @endif
+                </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <div class="card p-5 flex items-center gap-4">
