@@ -66,13 +66,13 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     Route::get('clientes', [ClienteController::class, 'index'])->name('clientes.index');
     Route::get('clientes/{user}', [ClienteController::class, 'show'])->name('clientes.show');
 
+    Route::get('ventas/reporte-mensual', [ReporteController::class, 'mensual'])->name('ventas.reporte-mensual');
+    Route::post('ventas/reporte-mensual', [ReporteController::class, 'downloadMensual'])->name('ventas.reporte-mensual.download');
     Route::get('ventas', [AdminVentaController::class, 'index'])->name('ventas.index');
     Route::get('ventas/crear', [AdminVentaController::class, 'create'])->name('ventas.create');
     Route::post('ventas', [AdminVentaController::class, 'store'])->name('ventas.store');
     Route::get('ventas/{venta}', [AdminVentaController::class, 'show'])->name('ventas.show');
     Route::patch('ventas/{venta}', [AdminVentaController::class, 'update'])->name('ventas.update');
-    Route::get('ventas/reporte-mensual', [ReporteController::class, 'mensual'])->name('ventas.reporte-mensual');
-    Route::post('ventas/reporte-mensual', [ReporteController::class, 'downloadMensual'])->name('ventas.reporte-mensual.download');
 
     Route::get('cierres', [CierreDiarioController::class, 'index'])->name('cierres.index');
     Route::get('cierres/pendiente', [CierreDiarioController::class, 'pendiente'])->name('cierres.pendiente');
