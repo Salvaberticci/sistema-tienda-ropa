@@ -59,7 +59,7 @@ class Producto extends Model
             ->pluck('producto_id');
 
         if ($productosIds->isEmpty()) {
-            return $query->whereNull('id');
+            return $query->inRandomOrder()->take($limite);
         }
 
         return $query->whereIn('id', $productosIds);
