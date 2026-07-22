@@ -72,6 +72,19 @@
         @apply px-4 py-2 text-xs;
     }
 
+    .btn-xs {
+        @apply px-2.5 py-1.5 text-[11px] leading-none;
+    }
+
+    .btn-purple {
+        @apply inline-flex items-center justify-center gap-1.5 bg-gradient-to-br from-purple-500 to-purple-600
+               text-white px-6 py-2.5 rounded-xl font-medium text-sm
+               shadow-soft hover:shadow-soft-lg hover:from-purple-600 hover:to-purple-700
+               active:scale-[0.97] active:shadow-none
+               transition-all duration-200 ease-out
+               focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2;
+    }
+
     .btn-lg {
         @apply px-8 py-3.5 text-base;
     }

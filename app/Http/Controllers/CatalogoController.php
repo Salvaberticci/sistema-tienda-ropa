@@ -23,7 +23,9 @@ class CatalogoController extends Controller
             ->orderBy('nombre')
             ->paginate(12);
 
-        return view('catalogo.index', compact('productos', 'categorias'));
+        $masVendidos = Producto::activos()->with('categoria')->masVendidos()->get();
+
+        return view('catalogo.index', compact('productos', 'categorias', 'masVendidos'));
     }
 
     public function show(Producto $producto): View

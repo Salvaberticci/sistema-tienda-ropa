@@ -26,6 +26,9 @@
                         <x-nav-link :href="route('admin.categorias.index')" :active="request()->routeIs('admin.categorias.*')">
                             Categorías
                         </x-nav-link>
+                        <x-nav-link :href="route('admin.cierres.index')" :active="request()->routeIs('admin.cierres.*')">
+                            Cierres
+                        </x-nav-link>
                     </div>
                 @endif
             </div>
@@ -98,6 +101,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('admin.categorias.index')" :active="request()->routeIs('admin.categorias.*')">
                     Categorías
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.cierres.index')" :active="request()->routeIs('admin.cierres.*')">
+                    Cierres
                 </x-responsive-nav-link>
             </div>
         @endif

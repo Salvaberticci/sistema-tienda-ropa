@@ -17,7 +17,42 @@
                     $ingresosHoy = \App\Models\Venta::whereDate('created_at', today())->sum('total');
                     $productosBajoStock = \App\Models\Producto::stockBajo()->count();
                     $ultimasVentas = \App\Models\Venta::with('user')->latest()->take(5)->get();
+                    $cierrePendienteFecha = null;
+                    $cierrePendienteFormateada = null;
+                    $ultimoCierre = \App\Models\CierreDiario::latest('fecha')->first();
+                    $fechaPendiente = $ultimoCierre ? $ultimoCierre->fecha->addDay() : today()->subDay();
+                    if (!$fechaPendiente->isToday() && \App\Models\Venta::whereDate('created_at', $fechaPendiente)->where('estado', '!=', 'cancelado')->count() > 0) {
+                        $cierrePendienteFecha = $fechaPendiente->format('Y-m-d');
+                        $cierrePendienteFormateada = $fechaPendiente->isoFormat('D [de] MMMM [de] YYYY');
+                    }
                 @endphp
+
+                @if ($cierrePendienteFecha)
+                    <div class="mb-6 px-5 py-4 bg-amber-50 border border-amber-200 rounded-2xl flex items-center justify-between gap-4" x-data="{ oculto: false }" x-show="!oculto">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-6 h-6 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                            <div>
+                                <p class="text-sm font-semibold text-amber-800">Cierre pendiente</p>
+                                <p class="text-xs text-amber-700 mt-0.5">El día {{ $cierrePendienteFormateada }} no tiene cierre. ¿Deseas cerrar el día?</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            <form method="POST" action="{{ route('admin.cierres.store') }}">
+                                @csrf
+                                <input type="hidden" name="fecha" value="{{ $cierrePendienteFecha }}">
+                                <button type="submit" class="btn-primary btn-xs">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Cerrar día
+                                </button>
+                            </form>
+                            <button @click="oculto = true" class="btn-secondary btn-xs">Ahora no</button>
+                        </div>
+                    </div>
+                @endif
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     <div class="card p-5 flex items-center gap-4">
@@ -130,10 +165,52 @@
                     @endif
                 </div>
             @else
-                <div class="card p-6">
-                    <p class="text-beige-700">¡Has iniciado sesión!</p>
-                    <a href="{{ route('catalogo.index') }}" class="btn-primary mt-4 inline-block">Ver productos</a>
+                <div class="card p-6 mb-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <svg class="w-6 h-6 text-beige-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+                        </svg>
+                        <div>
+                            <h3 class="font-display text-lg font-semibold text-beige-800">¡Bienvenido!</h3>
+                            <p class="text-sm text-beige-500">Explora nuestros productos más populares</p>
+                        </div>
+                    </div>
+                    <a href="{{ route('catalogo.index') }}" class="btn-primary">Ver catálogo completo</a>
                 </div>
+
+                @if ($masVendidos->isNotEmpty())
+                    <div class="card p-6">
+                        <div class="flex items-center justify-between mb-5">
+                            <div>
+                                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-beige-500 uppercase tracking-wider">
+                                    Producto estrella de la semana
+                                </span>
+                                <h3 class="font-display text-lg font-semibold text-beige-800 mt-0.5">Los más vendidos</h3>
+                            </div>
+                            <a href="{{ route('catalogo.index') }}" class="text-sm text-beige-600 hover:text-beige-800 font-medium">Ver todos</a>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            @foreach ($masVendidos as $producto)
+                                <a href="{{ route('catalogo.show', $producto) }}" class="flex items-center gap-3 p-3 rounded-xl hover:bg-beige-50 transition-colors group">
+                                    <div class="w-14 h-14 rounded-lg bg-beige-100 flex items-center justify-center shrink-0 overflow-hidden">
+                                        @if ($producto->imagen_url)
+                                            <img src="{{ $producto->imagen_url }}" alt="" class="w-full h-full object-cover">
+                                        @else
+                                            <svg class="w-6 h-6 text-beige-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                                            </svg>
+                                        @endif
+                                    </div>
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-medium text-beige-800 truncate group-hover:text-beige-600 transition-colors">{{ $producto->nombre }}</p>
+                                        <p class="text-xs text-beige-400">{{ $producto->categoria?->nombre }}</p>
+                                        <p class="text-sm font-bold text-beige-800 mt-0.5">${{ number_format($producto->precio, 2) }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
             @endif
         </div>
     </div>

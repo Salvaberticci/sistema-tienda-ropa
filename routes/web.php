@@ -1,9 +1,11 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoriaController;
+use App\Http\Controllers\Admin\CierreDiarioController;
 use App\Http\Controllers\Admin\ClienteController;
 use App\Http\Controllers\Admin\InventarioController;
 use App\Http\Controllers\Admin\ProductoController;
+use App\Http\Controllers\Admin\ReporteController;
 use App\Http\Controllers\Admin\VentaController as AdminVentaController;
 use App\Http\Controllers\CarritoController;
 use App\Http\Controllers\CatalogoController;
@@ -15,7 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $destacados = \App\Models\Producto::activos()->with('categoria')->inRandomOrder()->take(4)->get();
-    return view('welcome', compact('destacados'));
+    $masVendidos = \App\Models\Producto::activos()->with('categoria')->masVendidos()->get();
+    return view('welcome', compact('destacados', 'masVendidos'));
 })->name('home');
 
 Route::get('productos', [CatalogoController::class, 'index'])->name('catalogo.index');
@@ -50,7 +53,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $masVendidos = \App\Models\Producto::activos()->with('categoria')->masVendidos()->get();
+        return view('dashboard', compact('masVendidos'));
     })->name('dashboard');
 
     Route::resource('categorias', CategoriaController::class);
@@ -67,6 +71,13 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     Route::post('ventas', [AdminVentaController::class, 'store'])->name('ventas.store');
     Route::get('ventas/{venta}', [AdminVentaController::class, 'show'])->name('ventas.show');
     Route::patch('ventas/{venta}', [AdminVentaController::class, 'update'])->name('ventas.update');
+    Route::get('ventas/reporte-mensual', [ReporteController::class, 'mensual'])->name('ventas.reporte-mensual');
+    Route::post('ventas/reporte-mensual', [ReporteController::class, 'downloadMensual'])->name('ventas.reporte-mensual.download');
+
+    Route::get('cierres', [CierreDiarioController::class, 'index'])->name('cierres.index');
+    Route::get('cierres/pendiente', [CierreDiarioController::class, 'pendiente'])->name('cierres.pendiente');
+    Route::post('cierres', [CierreDiarioController::class, 'store'])->name('cierres.store');
+    Route::get('cierres/{cierre}/download', [CierreDiarioController::class, 'download'])->name('cierres.download');
 });
 
 require __DIR__.'/auth.php';

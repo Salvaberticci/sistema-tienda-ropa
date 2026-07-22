@@ -44,4 +44,24 @@ class Producto extends Model
     {
         return $query->whereColumn('stock', '<=', 'stock_minimo');
     }
+
+    public function scopeMasVendidos($query, $dias = 7, $limite = 4)
+    {
+        $fecha = now()->subDays($dias);
+        $productosIds = \DB::table('venta_productos')
+            ->join('ventas', 'venta_productos.venta_id', '=', 'ventas.id')
+            ->where('ventas.created_at', '>=', $fecha)
+            ->where('ventas.estado', '!=', 'cancelado')
+            ->select('venta_productos.producto_id', \DB::raw('SUM(venta_productos.cantidad) as total'))
+            ->groupBy('venta_productos.producto_id')
+            ->orderBy('total', 'desc')
+            ->take($limite)
+            ->pluck('producto_id');
+
+        if ($productosIds->isEmpty()) {
+            return $query->whereNull('id');
+        }
+
+        return $query->whereIn('id', $productosIds);
+    }
 }
