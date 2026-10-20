@@ -43,7 +43,8 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $masVendidos = \App\Models\Producto::activos()->with('categoria')->masVendidos()->get();
+        return view('dashboard', compact('masVendidos'));
     })->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -142,7 +142,7 @@ class DemoDataSeeder extends Seeder
         ]);
 
         $venta5 = Venta::create([
-            'user_id' => 1,
+            'user_id' => $cliente2->id,
             'total' => 55.00,
             'estado' => 'confirmado',
             'created_at' => now()->subDays(2),

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual de Usuario — Hechizos Diseños y Complementos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== PORTADA ===================== -->
+<section class="cover">
+  <div class="cover-inner">
+    <div class="cover-top">
+      <div class="brand">Hechizos</div>
+      <div class="brand-sub">Diseños y Complementos</div>
+    </div>
+
+    <div class="cover-center">
+      <div class="cover-eyebrow">Documentación del sistema</div>
+      <h1>MANUAL<br>DE USUARIO</h1>
+      <div class="cover-rule"></div>
+      <p class="cover-sub">Sistema de Gestión de Inventario y Ventas</p>
+      <p class="cover-lead">Guía práctica para administradores y clientes</p>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-meta"><span>Versión</span><strong>1.0</strong></div>
+      <div class="cover-meta"><span>Fecha</span><strong>Octubre 2026</strong></div>
+      <div class="cover-meta"><span>Ubicación</span><strong>Trujillo, Venezuela</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTROL DE VERSIÓN ===================== -->
+<section class="doc-page">
+  <div class="doc-head">
+    <div class="kicker">Documento</div>
+    <h1>Control de versión</h1>
+    <p class="chapter-lead">Información general del documento y registro de cambios.</p>
+  </div>
+
+  <table>
+    <tbody>
+      <tr><th style="width:34%">Código del documento</th><td>MAN-HECH-001</td></tr>
+      <tr><th>Título</th><td>Manual de Usuario — Sistema de Gestión de Inventario y Ventas</td></tr>
+      <tr><th>Versión</th><td>1.0</td></tr>
+      <tr><th>Fecha de emisión</th><td>Octubre de 2026</td></tr>
+      <tr><th>Elaborado por</th><td>Equipo de Desarrollo — Hechizos Diseños y Complementos</td></tr>
+      <tr><th>Aprobado por</th><td>Dirección General</td></tr>
+      <tr><th>Estado</th><td>Vigente</td></tr>
+      <tr><th>Dirigido a</th><td>Personal administrativo y clientes del sistema</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Historial de versiones</h2>
+  <table>
+    <thead>
+      <tr><th style="width:14%">Versión</th><th style="width:18%">Fecha</th><th>Descripción del cambio</th><th style="width:24%">Autor</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1.0</td><td>Octubre 2026</td><td>Versión inicial del manual. Documenta los módulos públicos, de cliente y administrativos.</td><td>Equipo de Desarrollo</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Presentación</h2>
+  <p>Este manual describe el funcionamiento del Sistema de Gestión de Inventario y Ventas de <strong>Hechizos Diseños y Complementos</strong>. La aplicación permite administrar el catálogo de productos, controlar las existencias, gestionar clientes y ventas, emitir facturas y generar reportes de operación. Para los clientes, ofrece un catálogo en línea con carrito de compras y seguimiento de pedidos.</p>
+  <p>El documento está organizado en nueve capítulos que avanzan desde los conceptos generales y el acceso al sistema hasta la operación detallada de cada módulo, las preguntas frecuentes y el glosario de términos. Cada sección combina explicaciones, tablas de referencia, pasos numerados y capturas reales de la aplicación.</p>
+
+  <p class="small muted">Las capturas provienen de un entorno de demostración; los nombres, correos, productos y montos son ficticios.</p>
+</section>
+
+<!-- ===================== ÍNDICE ===================== -->
+<section class="doc-page toc">
+  <div class="doc-head">
+    <div class="kicker">Contenido</div>
+    <h1>Tabla de contenido</h1>
+    <p class="chapter-lead">Resumen de capítulos y secciones. Se recomienda leer los capítulos I a III y luego consultar el capítulo correspondiente a cada tarea.</p>
+  </div>
+
+  <table class="toc-table">
+    <thead>
+      <tr><th class="toc-type">Tipo</th><th>Contenido</th><th class="toc-page">Pág.</th></tr>
+    </thead>
+    <tbody>
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO I"><td class="toc-type">Capítulo</td><td class="toc-title">I. Generalidades</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.1 Introducción"><td class="toc-type">Sección</td><td class="toc-title">1.1 Introducción</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.2 Objetivo del manual"><td class="toc-type">Sección</td><td class="toc-title">1.2 Objetivo del manual</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.3 Alcance"><td class="toc-type">Sección</td><td class="toc-title">1.3 Alcance</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.4 Dirigido a"><td class="toc-type">Sección</td><td class="toc-title">1.4 Dirigido a</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.5 Requisitos del sistema"><td class="toc-type">Sección</td><td class="toc-title">1.5 Requisitos del sistema</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="1.6 Convenciones del documento"><td class="toc-type">Sección</td><td class="toc-title">1.6 Convenciones del documento</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO II"><td class="toc-type">Capítulo</td><td class="toc-title">II. Inicio y acceso al sistema</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.1 Página principal"><td class="toc-type">Sección</td><td class="toc-title">2.1 Página principal</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.2 Inicio de sesión"><td class="toc-type">Sección</td><td class="toc-title">2.2 Inicio de sesión</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.3 Registro de nuevos clientes"><td class="toc-type">Sección</td><td class="toc-title">2.3 Registro de nuevos clientes</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.4 Recuperación de contraseña"><td class="toc-type">Sección</td><td class="toc-title">2.4 Recuperación de contraseña</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.5 Cierre de sesión"><td class="toc-type">Sección</td><td class="toc-title">2.5 Cierre de sesión</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.6 Menú de usuario y perfil"><td class="toc-type">Sección</td><td class="toc-title">2.6 Menú de usuario y perfil</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="2.7 Recomendaciones de seguridad"><td class="toc-type">Sección</td><td class="toc-title">2.7 Recomendaciones de seguridad</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO III"><td class="toc-type">Capítulo</td><td class="toc-title">III. Roles y responsabilidades</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="3.1 Administrador"><td class="toc-type">Sección</td><td class="toc-title">3.1 Administrador</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="3.2 Cliente"><td class="toc-type">Sección</td><td class="toc-title">3.2 Cliente</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="3.3 Matriz de permisos"><td class="toc-type">Sección</td><td class="toc-title">3.3 Matriz de permisos</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO IV"><td class="toc-type">Capítulo</td><td class="toc-title">IV. Operación de módulos administrativos</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.1 Panel de control"><td class="toc-type">Sección</td><td class="toc-title">4.1 Panel de control</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.2 Gestión de productos"><td class="toc-type">Sección</td><td class="toc-title">4.2 Gestión de productos</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.3 Gestión de categorías"><td class="toc-type">Sección</td><td class="toc-title">4.3 Gestión de categorías</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.4 Control de inventario"><td class="toc-type">Sección</td><td class="toc-title">4.4 Control de inventario</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.5 Gestión de clientes"><td class="toc-type">Sección</td><td class="toc-title">4.5 Gestión de clientes</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.6 Gestión de ventas"><td class="toc-type">Sección</td><td class="toc-title">4.6 Gestión de ventas</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.7 Registro de venta presencial"><td class="toc-type">Sección</td><td class="toc-title">4.7 Registro de venta presencial</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.8 Reporte mensual de ventas"><td class="toc-type">Sección</td><td class="toc-title">4.8 Reporte mensual de ventas</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="4.9 Cierre diario"><td class="toc-type">Sección</td><td class="toc-title">4.9 Cierre diario</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO V"><td class="toc-type">Capítulo</td><td class="toc-title">V. Catálogo y compras en línea</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.1 Productos destacados"><td class="toc-type">Sección</td><td class="toc-title">5.1 Productos destacados</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.2 Catálogo de productos"><td class="toc-type">Sección</td><td class="toc-title">5.2 Catálogo de productos</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.3 Detalle de producto"><td class="toc-type">Sección</td><td class="toc-title">5.3 Detalle de producto</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.4 Carrito de compras"><td class="toc-type">Sección</td><td class="toc-title">5.4 Carrito de compras</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.5 Confirmación del pedido"><td class="toc-type">Sección</td><td class="toc-title">5.5 Confirmación del pedido</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.6 Mis pedidos"><td class="toc-type">Sección</td><td class="toc-title">5.6 Mis pedidos</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="5.7 Factura en PDF"><td class="toc-type">Sección</td><td class="toc-title">5.7 Factura en PDF</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO VI"><td class="toc-type">Capítulo</td><td class="toc-title">VI. Consultas, historial y reportes</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="6.1 Consulta de ventas"><td class="toc-type">Sección</td><td class="toc-title">6.1 Consulta de ventas</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="6.2 Historial de movimientos"><td class="toc-type">Sección</td><td class="toc-title">6.2 Historial de movimientos</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="6.3 Estados de una venta"><td class="toc-type">Sección</td><td class="toc-title">6.3 Estados de una venta</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="6.4 Reportes del sistema"><td class="toc-type">Sección</td><td class="toc-title">6.4 Reportes del sistema</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO VII"><td class="toc-type">Capítulo</td><td class="toc-title">VII. Administración del sistema</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="7.1 Usuarios y credenciales"><td class="toc-type">Sección</td><td class="toc-title">7.1 Usuarios y credenciales</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="7.2 Datos maestros"><td class="toc-type">Sección</td><td class="toc-title">7.2 Datos maestros</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="7.3 Respaldo de la información"><td class="toc-type">Sección</td><td class="toc-title">7.3 Respaldo de la información</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="7.4 Buenas prácticas"><td class="toc-type">Sección</td><td class="toc-title">7.4 Buenas prácticas</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO VIII"><td class="toc-type">Capítulo</td><td class="toc-title">VIII. Preguntas frecuentes</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="8.1 Acceso y cuenta"><td class="toc-type">Sección</td><td class="toc-title">8.1 Acceso y cuenta</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="8.2 Operación diaria"><td class="toc-type">Sección</td><td class="toc-title">8.2 Operación diaria</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="8.3 Reportes y cierres"><td class="toc-type">Sección</td><td class="toc-title">8.3 Reportes y cierres</td><td class="toc-page">—</td></tr>
+
+      <tr class="toc-row toc-chapter" data-find="CAPÍTULO IX"><td class="toc-type">Capítulo</td><td class="toc-title">IX. Glosario</td><td class="toc-page">—</td></tr>
+      <tr class="toc-row toc-section" data-find="9.1 Términos del sistema"><td class="toc-type">Sección</td><td class="toc-title">9.1 Términos del sistema</td><td class="toc-page">—</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== CAPÍTULO I ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo I</div>
+    <h1>Generalidades</h1>
+    <p class="chapter-lead">Contexto, propósito y alcance del sistema y de este manual.</p>
+  </div>
+
+  <h2 id="s-1-1">1.1 Introducción</h2>
+  <p><strong>Hechizos Diseños y Complementos</strong> es un emprendimiento dedicado a la creación y comercialización de artesanías andinas y artículos importados. A medida que la operación creció, la gestión manual de productos, existencias y pedidos dejó de ser suficiente: era difícil conocer el stock real, controlar las ventas del día y conservar un historial confiable de cada cliente.</p>
+  <p>Para resolver esa necesidad se implementó el <strong>Sistema de Gestión de Inventario y Ventas</strong>, una aplicación web que centraliza la información del negocio en una sola plataforma. El sistema integra un catálogo público, cuentas de cliente, carrito de compras, registro de pedidos, facturación en PDF y un panel administrativo con control de productos, categorías, inventario, clientes, ventas, reportes mensuales y cierres diarios.</p>
+  <p>El sistema está desarrollado con tecnología web moderna y funciona en cualquier navegador actualizado, sin necesidad de instalar programas adicionales en el equipo del usuario.</p>
+
+  <h2 id="s-1-2">1.2 Objetivo del manual</h2>
+  <p>Proporcionar una guía clara, ordenada y práctica para el uso del sistema, de modo que administradores y clientes puedan realizar sus tareas de forma autónoma, reducir errores operativos y aprovechar las funciones de control y reportes que ofrece la plataforma.</p>
+  <p>Al finalizar la lectura, el administrador estará en capacidad de gestionar el catálogo, registrar movimientos de inventario, atender pedidos, emitir reportes y realizar el cierre diario. El cliente podrá registrarse, explorar el catálogo, comprar en línea y consultar el estado de sus pedidos.</p>
+
+  <h2 id="s-1-3">1.3 Alcance</h2>
+  <p>El manual cubre los siguientes procesos:</p>
+  <ul>
+    <li>Acceso al sistema: página principal, inicio de sesión, registro de clientes y recuperación de contraseña.</li>
+    <li>Gestión administrativa: panel de control, productos, categorías, inventario, clientes y ventas.</li>
+    <li>Operación comercial: venta presencial, reporte mensual de ventas y cierre diario.</li>
+    <li>Compra en línea: catálogo, detalle de producto, carrito, confirmación de pedido, seguimiento y factura en PDF.</li>
+    <li>Consultas: historial de ventas, movimientos de inventario y estados de los pedidos.</li>
+  </ul>
+  <p>Quedan fuera del alcance de esta versión la pasarela de pago en línea, el cálculo automático de costos de envío, la facturación fiscal y la integración con sistemas contables. Los pedidos generados en línea se pagan y coordinan directamente con la tienda.</p>
+
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>El sistema registra pedidos y genera documentos de control interno. La factura en PDF no sustituye los comprobantes fiscales exigidos por la legislación vigente.</p>
+  </div>
+
+  <h2 id="s-1-4">1.4 Dirigido a</h2>
+  <table>
+    <thead><tr><th style="width:26%">Usuario</th><th>Uso principal</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Administrador</strong></td><td>Operación completa del negocio: catálogo, inventario, clientes, ventas, reportes y cierres.</td></tr>
+      <tr><td><strong>Cliente</strong></td><td>Consulta del catálogo, compra en línea, seguimiento de pedidos y descarga de facturas.</td></tr>
+      <tr><td><strong>Soporte técnico</strong></td><td>Diagnóstico de incidencias, verificación de datos y acompañamiento a los usuarios.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="s-1-5">1.5 Requisitos del sistema</h2>
+  <table>
+    <thead><tr><th style="width:34%">Requisito</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td>Navegador web</td><td>Chrome, Microsoft Edge, Firefox o Safari en versión actualizada.</td></tr>
+      <tr><td>Conectividad</td><td>Conexión estable a internet para acceder al sistema y descargar documentos.</td></tr>
+      <tr><td>Pantalla</td><td>Resolución recomendada de 1366 × 768 píxeles o superior.</td></tr>
+      <tr><td>Credenciales</td><td>Correo electrónico y contraseña de una cuenta activa.</td></tr>
+      <tr><td>Documentos</td><td>Lector de PDF integrado en el navegador para consultar facturas y reportes.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="s-1-6">1.6 Convenciones del documento</h2>
+  <table>
+    <thead><tr><th style="width:30%">Convención</th><th>Significado</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Texto en negrita</strong></td><td>Nombre de un botón, campo, menú o elemento de la interfaz.</td></tr>
+      <tr><td>Rutas con flechas</td><td>Secuencia de navegación. Por ejemplo: <em>Ventas → Reporte mensual</em>.</td></tr>
+      <tr><td>Listas numeradas</td><td>Pasos que deben ejecutarse en el orden indicado.</td></tr>
+      <tr><td>Figuras</td><td>Capturas del sistema identificadas como «Figura N».</td></tr>
+      <tr><td>Recuadros</td><td>Notas, recomendaciones o advertencias relevantes para la operación.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== CAPÍTULO II ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo II</div>
+    <h1>Inicio y acceso al sistema</h1>
+    <p class="chapter-lead">Cómo entrar, registrarse y proteger la cuenta de usuario.</p>
+  </div>
+
+  <h2 id="s-2-1">2.1 Página principal</h2>
+  <p>La página principal es el punto de entrada público al sistema. Se accede escribiendo la dirección del sitio en el navegador y no requiere iniciar sesión. Desde aquí el visitante puede conocer la tienda, explorar los productos destacados y acceder al catálogo completo.</p>
+  <figure class="figure">
+    <img src="capturas/01-landing.jpg" alt="Página principal de Hechizos">
+    <figcaption><span class="fig-n">Figura 1.</span> Captura del sistema: página principal con la presentación de la tienda y los productos destacados.</figcaption>
+  </figure>
+  <p>La página se compone de las siguientes áreas:</p>
+  <table>
+    <thead><tr><th style="width:28%">Elemento</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Encabezado</strong></td><td>Nombre de la tienda, enlace al catálogo, icono del carrito y botones <strong>Iniciar sesión</strong> y <strong>Registrarse</strong>.</td></tr>
+      <tr><td><strong>Portada</strong></td><td>Mensaje de bienvenida y botones <strong>Explorar productos</strong> y <strong>Crear cuenta gratis</strong>.</td></tr>
+      <tr><td><strong>Productos destacados</strong></td><td>Selección de productos activos que se muestra de forma aleatoria en cada visita.</td></tr>
+      <tr><td><strong>Los más vendidos</strong></td><td>Los cuatro productos con mayor cantidad vendida en los últimos siete días.</td></tr>
+      <tr><td><strong>Lo que ofrecemos</strong></td><td>Mensajes sobre artesanías, artículos importados y entrega.</td></tr>
+      <tr><td><strong>Visítanos</strong></td><td>Dirección física de la tienda en Trujillo.</td></tr>
+      <tr><td><strong>Pie de página</strong></td><td>Nombre de la tienda y aviso de derechos reservados.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 id="s-2-2">2.2 Inicio de sesión</h2>
+  <p>El inicio de sesión identifica al usuario y determina las funciones disponibles según su rol. Para ingresar:</p>
+  <ol class="steps">
+    <li>Haga clic en <strong>Iniciar sesión</strong> en la esquina superior derecha de la página principal.</li>
+    <li>Escriba el correo electrónico registrado en el campo <strong>Correo electrónico</strong>.</li>
+    <li>Escriba la contraseña en el campo <strong>Contraseña</strong>.</li>
+    <li>Opcionalmente, marque <strong>Recordarme</strong> para mantener la sesión activa en ese equipo.</li>
+    <li>Haga clic en <strong>ENTRAR</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/02-login.jpg" alt="Pantalla de inicio de sesión">
+    <figcaption><span class="fig-n">Figura 2.</span> Captura del sistema: formulario de inicio de sesión.</figcaption>
+  </figure>
+  <p>Si las credenciales son correctas, el sistema redirige al panel de control. El administrador verá el menú con los módulos de gestión; el cliente verá su panel personal con acceso al catálogo y a sus pedidos. Si los datos no coinciden, se muestra un mensaje de error y se solicita verificarlos.</p>
+
+  <div class="credentials">
+    <h3>Credenciales de demostración</h3>
+    <table>
+      <thead><tr><th>Rol</th><th>Correo</th><th>Contraseña</th></tr></thead>
+      <tbody>
+        <tr><td>Administrador</td><td>admin@hechizos.com</td><td>password</td></tr>
+        <tr><td>Cliente</td><td>maria@test.com</td><td>password</td></tr>
+      </tbody>
+    </table>
+    <p class="small muted" style="margin-top:2.5mm;margin-bottom:0">Estas cuentas se incluyen únicamente con fines de demostración y práctica. En un entorno real deben utilizarse contraseñas seguras y personales.</p>
+  </div>
+
+  <h2 id="s-2-3">2.3 Registro de nuevos clientes</h2>
+  <p>El registro permite crear una cuenta de cliente para comprar en línea y consultar el historial de pedidos. Para registrarse:</p>
+  <ol class="steps">
+    <li>Haga clic en <strong>Registrarse</strong> o en <strong>Crear cuenta gratis</strong> desde la página principal.</li>
+    <li>Complete el nombre completo, la cédula y el teléfono. La cédula y el teléfono son opcionales en este paso.</li>
+    <li>Escriba un correo electrónico válido. El sistema no permite registrar dos cuentas con el mismo correo.</li>
+    <li>Defina una contraseña y repítala en <strong>Confirmar contraseña</strong>.</li>
+    <li>Haga clic en <strong>REGISTRARSE</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/03-registro.jpg" alt="Formulario de registro de clientes">
+    <figcaption><span class="fig-n">Figura 3.</span> Captura del sistema: formulario de registro de una nueva cuenta de cliente.</figcaption>
+  </figure>
+  <table>
+    <thead><tr><th style="width:30%">Campo</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nombre completo</strong></td><td>Nombre y apellido del cliente. Se mostrará en pedidos y facturas.</td></tr>
+      <tr><td><strong>Cédula</strong></td><td>Documento de identidad. Campo opcional con formato de ejemplo V-12345678.</td></tr>
+      <tr><td><strong>Teléfono</strong></td><td>Número de contacto. Campo opcional; se recomienda completarlo para la coordinación de entregas.</td></tr>
+      <tr><td><strong>Correo electrónico</strong></td><td>Identificador de acceso y medio de contacto. Debe ser único.</td></tr>
+      <tr><td><strong>Contraseña</strong></td><td>Clave de acceso. Debe tener al menos ocho caracteres.</td></tr>
+      <tr><td><strong>Confirmar contraseña</strong></td><td>Repetición exacta de la contraseña para evitar errores de escritura.</td></tr>
+    </tbody>
+  </table>
+  <p>Al finalizar, la sesión se inicia automáticamente y el cliente es dirigido a su panel. Los datos de contacto se registran en este formulario; si necesita corregir el teléfono o la dirección de envío, comuníquese con la tienda.</p>
+
+  <h2 id="s-2-4">2.4 Recuperación de contraseña</h2>
+  <p>Si el usuario olvidó su contraseña, puede solicitar un enlace de restablecimiento:</p>
+  <ol class="steps">
+    <li>En la pantalla de inicio de sesión, haga clic en <strong>¿Olvidaste tu contraseña?</strong>.</li>
+    <li>Escriba el correo electrónico asociado a la cuenta.</li>
+    <li>Haga clic en <strong>ENVIAR ENLACE</strong>.</li>
+    <li>Abra el mensaje recibido y siga el enlace para definir una nueva contraseña.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/04-recuperar-contrasena.jpg" alt="Recuperación de contraseña">
+    <figcaption><span class="fig-n">Figura 4.</span> Captura del sistema: solicitud de recuperación de contraseña.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>El envío del correo depende de la configuración de mensajería del sistema. Si el mensaje no llega, revise la carpeta de correo no deseado o solicite apoyo al administrador.</p>
+  </div>
+
+  <h2 id="s-2-5">2.5 Cierre de sesión</h2>
+  <p>Para salir del sistema, haga clic en el nombre del usuario en la esquina superior derecha y seleccione <strong>Cerrar sesión</strong>. La sesión finaliza de inmediato y el sistema regresa a la página principal.</p>
+  <p>Se recomienda cerrar la sesión cuando se utilice un equipo compartido o público. No basta con cerrar la pestaña del navegador: la sesión puede permanecer activa hasta que se cierre explícitamente.</p>
+
+  <h2 id="s-2-6">2.6 Menú de usuario y perfil</h2>
+  <p>El menú de usuario se despliega al hacer clic sobre el nombre en la barra superior. Desde allí se accede a las opciones personales:</p>
+  <figure class="figure half">
+    <img src="capturas/31-menu-usuario.jpg" alt="Menú de usuario">
+    <figcaption><span class="fig-n">Figura 5.</span> Captura del sistema: menú de usuario con las opciones Mis pedidos, Perfil y Cerrar sesión.</figcaption>
+  </figure>
+  <table>
+    <thead><tr><th style="width:28%">Opción</th><th>Función</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Mis pedidos</strong></td><td>Muestra el historial de pedidos del cliente y el estado de cada uno.</td></tr>
+      <tr><td><strong>Perfil</strong></td><td>Permite actualizar el nombre, el correo electrónico y la contraseña.</td></tr>
+      <tr><td><strong>Cerrar sesión</strong></td><td>Finaliza la sesión activa y regresa a la página principal.</td></tr>
+    </tbody>
+  </table>
+  <p>En la pantalla <strong>Mi Perfil</strong> se distinguen dos bloques. El primero, <strong>Información del perfil</strong>, permite modificar el nombre y el correo electrónico. El segundo, <strong>Actualizar contraseña</strong>, solicita la contraseña actual y la nueva contraseña con su confirmación.</p>
+  <figure class="figure">
+    <img src="capturas/30-perfil.jpg" alt="Perfil de usuario">
+    <figcaption><span class="fig-n">Figura 6.</span> Captura del sistema: pantalla de perfil con la actualización de datos y de contraseña.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Recomendación</div>
+    <p>Verifique que su correo electrónico esté actualizado: es el medio de contacto y el dato utilizado para recuperar la contraseña. El perfil solo permite modificar el nombre y el correo; si el teléfono o la dirección de envío son incorrectos, comuníquese con la tienda antes de confirmar un pedido.</p>
+  </div>
+
+  <h2 id="s-2-7">2.7 Recomendaciones de seguridad</h2>
+  <ul>
+    <li>Utilice una contraseña exclusiva para el sistema y no la comparta con otras personas.</li>
+    <li>Evite contraseñas evidentes, como el nombre, la fecha de nacimiento o secuencias numéricas.</li>
+    <li>Cierre la sesión al terminar, especialmente en equipos compartidos.</li>
+    <li>No utilice la cuenta de administrador para tareas personales.</li>
+    <li>Informe de inmediato cualquier acceso no reconocido o cambio extraño en la información.</li>
+    <li>Verifique que la dirección del sitio sea la correcta antes de ingresar credenciales.</li>
+  </ul>
+</section>
+
+<!-- ===================== CAPÍTULO III ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo III</div>
+    <h1>Roles y responsabilidades</h1>
+    <p class="chapter-lead">Perfiles de usuario, funciones asignadas y nivel de acceso.</p>
+  </div>
+
+  <p>El sistema aplica un control de acceso basado en roles. Cada cuenta tiene asignado un rol que determina las pantallas y acciones disponibles. Esta separación protege la información y evita que un cliente acceda a funciones de administración.</p>
+
+  <h2 id="s-3-1">3.1 Administrador</h2>
+  <p>El administrador es responsable de la operación integral de la tienda dentro del sistema. Sus funciones principales son:</p>
+  <ul>
+    <li>Mantener actualizado el catálogo de productos, precios y categorías.</li>
+    <li>Controlar las existencias mediante entradas y salidas de inventario.</li>
+    <li>Consultar la información de los clientes registrados.</li>
+    <li>Gestionar los pedidos y actualizar su estado a medida que avanza la preparación y entrega.</li>
+    <li>Registrar ventas presenciales realizadas en la tienda física.</li>
+    <li>Generar el reporte mensual de ventas y realizar el cierre diario.</li>
+    <li>Descargar facturas y reportes en formato PDF.</li>
+  </ul>
+  <p>El administrador tiene visibilidad sobre todos los pedidos y puede consultar la factura de cualquier venta. Su cuenta debe estar reservada al personal autorizado.</p>
+
+  <h2 id="s-3-2">3.2 Cliente</h2>
+  <p>El cliente utiliza el sistema para comprar en línea y dar seguimiento a sus pedidos. Sus funciones son:</p>
+  <ul>
+    <li>Consultar la página principal y el catálogo de productos activos.</li>
+    <li>Agregar productos al carrito y modificar cantidades.</li>
+    <li>Confirmar pedidos con los datos de envío registrados en su perfil.</li>
+    <li>Consultar el estado de sus pedidos y su historial de compras.</li>
+    <li>Descargar la factura en PDF de sus propios pedidos.</li>
+    <li>Actualizar sus datos personales y su contraseña.</li>
+  </ul>
+  <p>El cliente no puede ver pedidos de otras personas, modificar precios, alterar el inventario ni acceder a los módulos administrativos. Si intenta abrir una dirección reservada, el sistema deniega el acceso.</p>
+
+  <h2 id="s-3-3">3.3 Matriz de permisos</h2>
+  <table>
+    <thead>
+      <tr><th style="width:34%">Módulo o acción</th><th style="width:33%">Administrador</th><th>Cliente</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Página principal y catálogo</td><td>Consultar</td><td>Consultar</td></tr>
+      <tr><td>Carrito de compras</td><td>Usar</td><td>Usar</td></tr>
+      <tr><td>Confirmación de pedido</td><td>—</td><td>Usar</td></tr>
+      <tr><td>Mis pedidos</td><td>—</td><td>Consultar los propios</td></tr>
+      <tr><td>Factura en PDF</td><td>Todas las ventas</td><td>Solo las propias</td></tr>
+      <tr><td>Panel de control</td><td>Completo</td><td>Resumen personal</td></tr>
+      <tr><td>Productos y categorías</td><td>Gestionar</td><td>—</td></tr>
+      <tr><td>Inventario</td><td>Gestionar</td><td>—</td></tr>
+      <tr><td>Clientes</td><td>Consultar</td><td>—</td></tr>
+      <tr><td>Ventas y pedidos</td><td>Gestionar todos</td><td>—</td></tr>
+      <tr><td>Reporte mensual</td><td>Generar</td><td>—</td></tr>
+      <tr><td>Cierre diario</td><td>Gestionar</td><td>—</td></tr>
+      <tr><td>Perfil propio</td><td>Editar</td><td>Editar</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>La creación de cuentas administrativas se realiza durante la implementación y configuración del sistema. Los clientes, en cambio, pueden crear su propia cuenta desde la pantalla de registro.</p>
+  </div>
+</section>
+
+<!-- ===================== CAPÍTULO IV ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo IV</div>
+    <h1>Operación de módulos administrativos</h1>
+    <p class="chapter-lead">Gestión diaria del catálogo, el inventario, los clientes, las ventas y los reportes.</p>
+  </div>
+
+  <p>Este capítulo describe las funciones disponibles para el rol de administrador. Todas las opciones se encuentran en la barra de navegación superior: <strong>Productos</strong>, <strong>Inventario</strong>, <strong>Clientes</strong>, <strong>Ventas</strong>, <strong>Categorías</strong> y <strong>Cierres</strong>. El panel de control se abre al iniciar sesión.</p>
+
+  <h2 id="s-4-1">4.1 Panel de control</h2>
+  <p>El panel de control resume el estado general del negocio. Es la primera pantalla que ve el administrador al ingresar y permite detectar rápidamente situaciones que requieren atención, como productos con stock bajo o ventas pendientes de confirmación.</p>
+  <figure class="figure half">
+    <img src="capturas/05-dashboard-admin.jpg" alt="Panel de control del administrador">
+    <figcaption><span class="fig-n">Figura 7.</span> Captura del sistema: panel de control del administrador con indicadores, cierre del día y últimas ventas.</figcaption>
+  </figure>
+  <table>
+    <thead><tr><th style="width:30%">Elemento</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Franja de cierre</strong></td><td>Muestra el total vendido en el día y el número de ventas. Incluye el botón <strong>Cerrar día</strong> y el acceso al <strong>Historial</strong> de cierres.</td></tr>
+      <tr><td><strong>Productos</strong></td><td>Cantidad total de productos registrados, activos e inactivos.</td></tr>
+      <tr><td><strong>Categorías</strong></td><td>Cantidad de categorías creadas.</td></tr>
+      <tr><td><strong>Clientes</strong></td><td>Usuarios registrados con rol de cliente.</td></tr>
+      <tr><td><strong>Ventas totales</strong></td><td>Cantidad acumulada de ventas registradas en el sistema.</td></tr>
+      <tr><td><strong>Ingresos hoy</strong></td><td>Suma de las ventas registradas en la fecha actual.</td></tr>
+      <tr><td><strong>Productos con stock bajo</strong></td><td>Productos cuyo stock es igual o inferior al stock mínimo configurado. El indicador se resalta en rojo cuando hay casos.</td></tr>
+      <tr><td><strong>Últimas ventas</strong></td><td>Las cinco ventas más recientes con cliente, total y estado. El enlace <strong>Ver todas</strong> abre el módulo de ventas.</td></tr>
+    </tbody>
+  </table>
+  <div class="callout">
+    <div class="callout-title">Recomendación</div>
+    <p>Revise el panel al iniciar y al finalizar la jornada. Un producto con stock bajo debe reabastecerse antes de que afecte las ventas; una venta pendiente debe confirmarse o cancelarse para mantener el historial actualizado.</p>
+  </div>
+
+  <h2 id="s-4-2">4.2 Gestión de productos</h2>
+  <p>El módulo de productos concentra el catálogo. Desde aquí se crean los artículos, se actualizan precios y existencias y se controla su visibilidad en la tienda en línea.</p>
+  <figure class="figure">
+    <img src="capturas/06-productos-lista.jpg" alt="Listado de productos">
+    <figcaption><span class="fig-n">Figura 8.</span> Captura del sistema: listado de productos con categoría, precio, stock y estado.</figcaption>
+  </figure>
+  <p>El listado muestra los productos ordenados alfabéticamente y paginados. Las columnas son:</p>
+  <ul>
+    <li><strong>Producto:</strong> imagen en miniatura y nombre.</li>
+    <li><strong>Categoría:</strong> categoría asociada.</li>
+    <li><strong>Precio:</strong> precio de venta unitario en dólares.</li>
+    <li><strong>Stock:</strong> existencias actuales. Se resalta cuando el valor es bajo.</li>
+    <li><strong>Estado:</strong> activo o inactivo.</li>
+    <li><strong>Acciones:</strong> botón <strong>Editar</strong>.</li>
+  </ul>
+
+  <h3>Crear un producto</h3>
+  <ol class="steps">
+    <li>Ingrese a <strong>Productos</strong> y haga clic en <strong>Nuevo producto</strong>.</li>
+    <li>Escriba el nombre del producto.</li>
+    <li>Seleccione la categoría.</li>
+    <li>Agregue una descripción breve; se mostrará en el detalle del catálogo.</li>
+    <li>Indique el precio, el stock inicial y el stock mínimo.</li>
+    <li>Opcionalmente, cargue una imagen en formato JPG, PNG o WEBP de hasta 2 MB.</li>
+    <li>Haga clic en <strong>Guardar producto</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/07-producto-crear.jpg" alt="Formulario de creación de producto">
+    <figcaption><span class="fig-n">Figura 9.</span> Captura del sistema: formulario de creación de un producto.</figcaption>
+  </figure>
+  <table>
+    <thead><tr><th style="width:28%">Campo</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Nombre</strong></td><td>Nombre comercial del producto. Obligatorio.</td></tr>
+      <tr><td><strong>Categoría</strong></td><td>Categoría a la que pertenece. Solo se muestran categorías activas.</td></tr>
+      <tr><td><strong>Descripción</strong></td><td>Texto descriptivo para el catálogo. Opcional.</td></tr>
+      <tr><td><strong>Precio ($)</strong></td><td>Precio unitario de venta. Admita dos decimales.</td></tr>
+      <tr><td><strong>Stock inicial</strong></td><td>Cantidad disponible al momento de crear el producto.</td></tr>
+      <tr><td><strong>Stock mínimo</strong></td><td>Umbral de alerta. Cuando el stock es igual o menor, el producto aparece como stock bajo en el panel.</td></tr>
+      <tr><td><strong>Imagen del producto</strong></td><td>Archivo opcional. Si no se carga, el catálogo muestra un ícono genérico.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Editar un producto</h3>
+  <p>Haga clic en <strong>Editar</strong> sobre el producto deseado. Se habilita el mismo formulario con los datos actuales y una casilla adicional, <strong>Producto activo</strong>. Al desmarcarla, el producto deja de mostrarse en el catálogo público, pero se conserva en el historial de ventas y en los reportes.</p>
+  <figure class="figure">
+    <img src="capturas/08-producto-editar.jpg" alt="Edición de producto">
+    <figcaption><span class="fig-n">Figura 10.</span> Captura del sistema: edición de un producto existente.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>Para retirar un producto de la venta se recomienda desmarcar <strong>Producto activo</strong> en lugar de eliminarlo. Así se mantiene la trazabilidad de las ventas y facturas anteriores. Si se reemplaza la imagen, el sistema elimina el archivo anterior.</p>
+  </div>
+
+  <h2 id="s-4-3">4.3 Gestión de categorías</h2>
+  <p>Las categorías organizan el catálogo y alimentan los filtros de la tienda en línea. El listado muestra el nombre, la descripción, la cantidad de productos asociados y el estado.</p>
+  <figure class="figure">
+    <img src="capturas/09-categorias.jpg" alt="Listado de categorías">
+    <figcaption><span class="fig-n">Figura 11.</span> Captura del sistema: listado de categorías.</figcaption>
+  </figure>
+  <h3>Crear una categoría</h3>
+  <ol class="steps">
+    <li>Ingrese a <strong>Categorías</strong> y haga clic en <strong>Nueva categoría</strong>.</li>
+    <li>Escriba el nombre de la categoría.</li>
+    <li>Agregue una descripción breve. Es opcional.</li>
+    <li>Verifique que la casilla <strong>Categoría activa</strong> esté marcada.</li>
+    <li>Haga clic en <strong>Guardar categoría</strong>.</li>
+  </ol>
+  <figure class="figure half">
+    <img src="capturas/10-categoria-crear.jpg" alt="Creación de categoría">
+    <figcaption><span class="fig-n">Figura 12.</span> Captura del sistema: formulario de creación de categoría.</figcaption>
+  </figure>
+  <p>Una categoría inactiva no aparece en los filtros públicos ni en el formulario de creación de productos. El sistema impide eliminar una categoría que tenga productos asociados; en ese caso debe reasignar los productos o desactivar la categoría.</p>
+
+  <h2 id="s-4-4">4.4 Control de inventario</h2>
+  <p>El módulo de inventario registra las entradas y salidas manuales de mercancía y mantiene el historial de cada movimiento. Es la herramienta de control para reposiciones, ajustes, mermas y devoluciones.</p>
+  <figure class="figure">
+    <img src="capturas/11-inventario.jpg" alt="Historial de movimientos de inventario">
+    <figcaption><span class="fig-n">Figura 13.</span> Captura del sistema: historial de movimientos de inventario.</figcaption>
+  </figure>
+  <p>La tabla de movimientos presenta la fecha, el producto, el tipo de movimiento, la cantidad, el motivo y el usuario que lo registró. Los movimientos de entrada se identifican en verde y los de salida en rojo.</p>
+
+  <h3>Registrar un movimiento</h3>
+  <ol class="steps">
+    <li>Ingrese a <strong>Inventario</strong> y haga clic en <strong>Nuevo movimiento</strong>.</li>
+    <li>Seleccione el producto.</li>
+    <li>Elija el tipo de movimiento: <strong>Entrada</strong> o <strong>Salida</strong>.</li>
+    <li>Indique la cantidad.</li>
+    <li>Escriba el motivo. Por ejemplo: compra a proveedor, reabastecimiento, ajuste o devolución.</li>
+    <li>Haga clic en <strong>Registrar movimiento</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/12-inventario-crear.jpg" alt="Registro de movimiento de inventario">
+    <figcaption><span class="fig-n">Figura 14.</span> Captura del sistema: registro de un movimiento de inventario.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>Una salida no puede superar el stock disponible; el sistema rechaza la operación e indica la cantidad actual. Las ventas descontadas automáticamente desde el catálogo o desde una venta presencial no generan un movimiento manual: se consultan en el módulo de ventas. Registre aquí solo ajustes o movimientos no asociados a una venta.</p>
+  </div>
+
+  <h2 id="s-4-5">4.5 Gestión de clientes</h2>
+  <p>El módulo de clientes permite consultar las cuentas registradas y su historial de compras. Solo aparecen los usuarios con rol de cliente; las cuentas administrativas no se listan.</p>
+  <figure class="figure">
+    <img src="capturas/13-clientes.jpg" alt="Listado de clientes">
+    <figcaption><span class="fig-n">Figura 15.</span> Captura del sistema: listado de clientes registrados.</figcaption>
+  </figure>
+  <p>El listado muestra el nombre, el correo electrónico, la cédula, el teléfono, la fecha de registro y el botón <strong>Ver</strong> para abrir el detalle.</p>
+  <figure class="figure">
+    <img src="capturas/14-cliente-detalle.jpg" alt="Detalle de cliente">
+    <figcaption><span class="fig-n">Figura 16.</span> Captura del sistema: detalle de un cliente con sus datos personales.</figcaption>
+  </figure>
+  <p>El detalle reúne el nombre, el correo, la cédula, el teléfono, la dirección y la fecha de registro. La tarjeta <strong>Compras realizadas</strong> aún no muestra el historial en esta versión; para consultar los pedidos de una persona, utilice el módulo <strong>Ventas</strong> y revise la columna del cliente.</p>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>La información de los clientes es confidencial. Utilícela únicamente para la operación de la tienda y no la comparta con terceros.</p>
+  </div>
+
+  <h2 id="s-4-6">4.6 Gestión de ventas</h2>
+  <p>El módulo de ventas concentra todos los pedidos, tanto los generados en línea por los clientes como los registrados presencialmente por el administrador. Desde aquí se actualiza el estado y se descargan las facturas.</p>
+  <figure class="figure">
+    <img src="capturas/15-ventas-lista.jpg" alt="Listado de ventas">
+    <figcaption><span class="fig-n">Figura 17.</span> Captura del sistema: listado de ventas con acciones rápidas según el estado.</figcaption>
+  </figure>
+  <p>Las columnas del listado son: número de venta, cliente, fecha, total, estado y acciones. Las acciones rápidas cambian según el estado actual del pedido:</p>
+  <table>
+    <thead><tr><th style="width:22%">Estado actual</th><th>Acciones disponibles</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pendiente</strong></td><td><strong>Confirmar</strong>, <strong>Cancelar</strong> y <strong>Detalle</strong>.</td></tr>
+      <tr><td><strong>Confirmado</strong></td><td><strong>Enviar</strong>, <strong>Cancelar</strong> y <strong>Detalle</strong>.</td></tr>
+      <tr><td><strong>Enviado</strong></td><td><strong>Entregar</strong>, <strong>Cancelar</strong> y <strong>Detalle</strong>.</td></tr>
+      <tr><td><strong>Entregado</strong></td><td>El pedido se muestra como completado; queda disponible <strong>Detalle</strong>.</td></tr>
+      <tr><td><strong>Cancelado</strong></td><td>El pedido se conserva para consulta; queda disponible <strong>Detalle</strong>.</td></tr>
+    </tbody>
+  </table>
+  <p>Al hacer clic en una acción rápida se abre una ventana de confirmación que indica el nuevo estado. El botón <strong>Confirmar</strong> de la ventana aplica el cambio; <strong>Cancelar</strong> cierra la ventana sin modificar el pedido.</p>
+  <figure class="figure">
+    <img src="capturas/18-modal-estado.jpg" alt="Ventana de confirmación de cambio de estado">
+    <figcaption><span class="fig-n">Figura 18.</span> Captura del sistema: ventana de confirmación para cambiar el estado de una venta.</figcaption>
+  </figure>
+
+  <h3>Detalle de la venta</h3>
+  <p>El botón <strong>Detalle</strong> abre la ficha completa del pedido. Allí se muestran los datos del cliente, la fecha, el estado, los productos con cantidades y precios, y el total. El administrador puede cambiar el estado desde el selector y descargar la factura en PDF.</p>
+  <figure class="figure">
+    <img src="capturas/16-venta-detalle.jpg" alt="Detalle de venta">
+    <figcaption><span class="fig-n">Figura 19.</span> Captura del sistema: detalle de una venta con productos, total y descarga de factura.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>Al cancelar una venta, el stock no se repone automáticamente. Si la mercancía regresa al inventario, registre una entrada manual en el módulo de inventario con el motivo correspondiente. Las ventas canceladas se excluyen del reporte mensual y del cierre diario.</p>
+  </div>
+
+  <h2 id="s-4-7">4.7 Registro de venta presencial</h2>
+  <p>Las ventas realizadas en la tienda física se registran desde <strong>Ventas → Nueva venta</strong>. Este flujo no requiere una cuenta de cliente: la venta queda asociada al usuario administrador que la registra.</p>
+  <ol class="steps">
+    <li>Ingrese a <strong>Ventas</strong> y haga clic en <strong>Nueva venta</strong>.</li>
+    <li>Seleccione el primer producto y la cantidad.</li>
+    <li>Si el pedido incluye más artículos, haga clic en <strong>Agregar otro producto</strong> y repita la selección.</li>
+    <li>Verifique el total calculado automáticamente.</li>
+    <li>Haga clic en <strong>Registrar venta</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/17-venta-nueva.jpg" alt="Registro de venta presencial">
+    <figcaption><span class="fig-n">Figura 20.</span> Captura del sistema: registro de una venta presencial con varios productos.</figcaption>
+  </figure>
+  <p>Al registrar la venta, el sistema crea el pedido en estado <strong>Confirmado</strong>, descuenta las cantidades del stock y abre la ficha de la venta, desde donde se puede descargar la factura. La cantidad solicitada se ajusta al stock disponible; si el producto no tiene existencias, se muestra un mensaje de error y no se registra la venta.</p>
+
+  <h2 id="s-4-8">4.8 Reporte mensual de ventas</h2>
+  <p>El reporte mensual consolida las ventas de un mes calendario y genera un documento PDF para análisis o archivo. Es útil para evaluar la evolución del negocio y presentar resultados.</p>
+  <ol class="steps">
+    <li>Ingrese a <strong>Ventas</strong> y haga clic en <strong>Reporte mensual</strong>.</li>
+    <li>Seleccione el mes en el campo <strong>Mes</strong>.</li>
+    <li>Haga clic en <strong>Descargar PDF</strong>.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/19-reporte-mensual-form.jpg" alt="Formulario del reporte mensual">
+    <figcaption><span class="fig-n">Figura 21.</span> Captura del sistema: selección del mes para el reporte de ventas.</figcaption>
+  </figure>
+  <p>El PDF incluye el total vendido en el mes, la cantidad de ventas realizadas, la cantidad de días con ventas y el detalle agrupado por día, con cliente, productos y total de cada pedido.</p>
+  <figure class="figure narrow">
+    <img src="capturas/21-reporte-mensual-pdf.jpg" alt="Reporte mensual en PDF">
+    <figcaption><span class="fig-n">Figura 22.</span> Captura del sistema: primera página del reporte mensual en PDF.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>El reporte se calcula con las ventas registradas hasta el momento de la descarga y excluye las ventas canceladas. Si se modifica una venta después de generar el PDF, será necesario descargar el reporte nuevamente para reflejar el cambio.</p>
+  </div>
+
+  <h2 id="s-4-9">4.9 Cierre diario</h2>
+  <p>El cierre diario registra un resumen de las ventas de una fecha y conserva el documento PDF como respaldo. Sirve para conciliar la caja al final de la jornada y dejar constancia del total vendido.</p>
+  <ol class="steps">
+    <li>Verifique en el panel de control que las ventas del día estén registradas y con el estado correcto.</li>
+    <li>Haga clic en <strong>Cerrar día</strong> en la franja superior del panel.</li>
+    <li>El sistema calcula el total y la cantidad de ventas de la fecha, genera el PDF y abre el historial de cierres con el mensaje de confirmación.</li>
+    <li>Descargue el PDF desde el botón <strong>PDF</strong> del historial si necesita una copia.</li>
+  </ol>
+  <figure class="figure">
+    <img src="capturas/32-cierres.jpg" alt="Historial de cierres diarios">
+    <figcaption><span class="fig-n">Figura 23.</span> Captura del sistema: historial de cierres con el cierre del día registrado.</figcaption>
+  </figure>
+  <p>Una vez realizado el cierre, el panel de control cambia la franja del día: muestra el texto <strong>Cierre de hoy completado</strong> con el monto cerrado y habilita el botón <strong>Descargar PDF</strong>.</p>
+  <figure class="figure half">
+    <img src="capturas/33-dashboard-cierre-completado.jpg" alt="Panel con cierre completado">
+    <figcaption><span class="fig-n">Figura 24.</span> Captura del sistema: panel de control después de completar el cierre del día.</figcaption>
+  </figure>
+  <p>El documento de cierre presenta la fecha, el total vendido, la cantidad de ventas, el detalle de cada operación con hora, cliente, productos y total, y el total del día.</p>
+  <figure class="figure narrow">
+    <img src="capturas/34-cierre-pdf.jpg" alt="Cierre diario en PDF">
+    <figcaption><span class="fig-n">Figura 25.</span> Captura del sistema: documento PDF del cierre diario.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>Solo puede existir un cierre por fecha. Si intenta registrar un segundo cierre para el mismo día, el sistema muestra un mensaje de error. El cierre no modifica las ventas ni el inventario, y no bloquea la operación: las ventas registradas después del cierre no se suman al documento ya emitido, por lo que se recomienda realizarlo al finalizar la jornada.</p>
+  </div>
+</section>
+
+<!-- ===================== CAPÍTULO V ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo V</div>
+    <h1>Catálogo y compras en línea</h1>
+    <p class="chapter-lead">Recorrido del cliente desde la vitrina virtual hasta la factura del pedido.</p>
+  </div>
+
+  <p>Este capítulo describe la experiencia de compra del cliente. Todas las pantallas son accesibles desde la página principal y la barra de navegación. Para confirmar un pedido es necesario tener una cuenta y haber iniciado sesión.</p>
+
+  <h2 id="s-5-1">5.1 Productos destacados</h2>
+  <p>La página principal abre con la sección <strong>Productos destacados</strong>, una selección aleatoria de cuatro productos activos que renueva la vitrina en cada visita. Más abajo, la sección <strong>Los más vendidos</strong> muestra los cuatro productos con mayor cantidad vendida en los últimos siete días, identificados con los números 1 a 4. Si no existen ventas en ese período, el sistema recurre a una selección aleatoria de productos activos para mantener la sección completa.</p>
+  <p>Al iniciar sesión, el cliente encuentra la misma selección en su panel personal, bajo el título <strong>Los más vendidos</strong>, junto a un acceso directo al catálogo completo.</p>
+  <figure class="figure">
+    <img src="capturas/22-dashboard-cliente.jpg" alt="Panel del cliente">
+    <figcaption><span class="fig-n">Figura 26.</span> Captura del sistema: panel del cliente con los productos más vendidos de la semana.</figcaption>
+  </figure>
+  <p>Los productos se calculan con las ventas no canceladas de los últimos siete días. Por eso la selección cambia con el tiempo y refleja la preferencia real de los compradores.</p>
+
+  <h2 id="s-5-2">5.2 Catálogo de productos</h2>
+  <p>El catálogo reúne todos los productos activos y permite buscar por nombre o descripción y filtrar por categoría. Es accesible desde el enlace <strong>Productos</strong> o desde los botones <strong>Explorar productos</strong> y <strong>Ver todos</strong>.</p>
+  <figure class="figure">
+    <img src="capturas/23-catalogo.jpg" alt="Catálogo de productos">
+    <figcaption><span class="fig-n">Figura 27.</span> Captura del sistema: catálogo con productos destacados, filtros por categoría y buscador.</figcaption>
+  </figure>
+  <ol class="steps">
+    <li>Haga clic en una categoría para mostrar solo sus productos. La opción <strong>Todas</strong> restablece el listado completo.</li>
+    <li>Escriba una palabra en el campo <strong>Buscar productos...</strong> y haga clic en <strong>Buscar</strong> para filtrar por nombre o descripción.</li>
+    <li>Use la paginación inferior para recorrer los resultados cuando haya más de doce productos.</li>
+    <li>Haga clic sobre una tarjeta para abrir el detalle del producto.</li>
+  </ol>
+  <p>Cada tarjeta muestra la categoría, el nombre y el precio. Solo se listan productos activos: los productos inactivos no aparecen en el catálogo público. Un producto agotado sí se muestra, pero en su detalle se identifica como <strong>Agotado</strong> y no permite agregarse al carrito.</p>
+
+  <h2 id="s-5-3">5.3 Detalle de producto</h2>
+  <p>El detalle presenta la información completa del artículo y permite agregarlo al carrito.</p>
+  <figure class="figure">
+    <img src="capturas/24-producto-detalle.jpg" alt="Detalle de producto">
+    <figcaption><span class="fig-n">Figura 28.</span> Captura del sistema: detalle de producto con disponibilidad, selector de cantidad y productos relacionados.</figcaption>
+  </figure>
+  <ol class="steps">
+    <li>Ajuste la cantidad con los botones <strong>−</strong> y <strong>+</strong>. El máximo corresponde al stock disponible.</li>
+    <li>Haga clic en <strong>Agregar al carrito</strong>.</li>
+    <li>Revise la confirmación del sistema y continúe comprando o abra el carrito desde el ícono superior.</li>
+  </ol>
+  <p>La sección <strong>Productos relacionados</strong> muestra otros artículos de la misma categoría. Si el visitante no ha iniciado sesión, en lugar del botón de compra se muestra el enlace <strong>Inicia sesión para comprar</strong>. Si el producto no tiene existencias, el botón se deshabilita.</p>
+
+  <h2 id="s-5-4">5.4 Carrito de compras</h2>
+  <p>El carrito conserva los productos seleccionados mientras el cliente navega. Es accesible desde el ícono del carrito en la barra superior, que muestra la cantidad de artículos agregados.</p>
+  <figure class="figure">
+    <img src="capturas/25-carrito.jpg" alt="Carrito de compras">
+    <figcaption><span class="fig-n">Figura 29.</span> Captura del sistema: carrito de compras con productos, cantidades y total.</figcaption>
+  </figure>
+  <ul>
+    <li><strong>Actualizar:</strong> cambia la cantidad de un producto y recalcula el total.</li>
+    <li><strong>Eliminar:</strong> retira el producto del carrito; el sistema solicita confirmación.</li>
+    <li><strong>Explorar productos:</strong> regresa al catálogo para seguir comprando.</li>
+    <li><strong>Finalizar compra:</strong> abre la pantalla de confirmación del pedido.</li>
+  </ul>
+  <p>Si el cliente no ha iniciado sesión, el botón de finalización lo invita a ingresar. Las cantidades se validan nuevamente al confirmar el pedido para evitar compras superiores al stock disponible.</p>
+
+  <h2 id="s-5-5">5.5 Confirmación del pedido</h2>
+  <p>La pantalla de confirmación resume la compra y solicita revisar los datos de envío antes de generar el pedido.</p>
+  <figure class="figure">
+    <img src="capturas/26-checkout.jpg" alt="Confirmación del pedido">
+    <figcaption><span class="fig-n">Figura 30.</span> Captura del sistema: confirmación del pedido con resumen y datos de envío.</figcaption>
+  </figure>
+  <ol class="steps">
+    <li>Revise los productos, cantidades, precios y total.</li>
+    <li>Verifique el nombre, correo, teléfono y dirección de envío.</li>
+    <li>Si el teléfono o la dirección no son correctos, comuníquese con la tienda antes de confirmar; el perfil solo permite actualizar el nombre y el correo.</li>
+    <li>Haga clic en <strong>Confirmar pedido</strong>.</li>
+  </ol>
+  <p>Al confirmar, el sistema crea el pedido en estado <strong>Pendiente</strong>, descuenta las cantidades del inventario, vacía el carrito y muestra la pantalla de confirmación con el número de pedido y los accesos al detalle y al catálogo.</p>
+  <figure class="figure">
+    <img src="capturas/27-confirmacion.jpg" alt="Pedido confirmado">
+    <figcaption><span class="fig-n">Figura 31.</span> Captura del sistema: pantalla de confirmación con el pedido registrado.</figcaption>
+  </figure>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>El pedido queda registrado para coordinación con la tienda. El sistema no procesa pagos en línea; el cliente debe comunicarse con Hechizos para acordar el pago y la entrega.</p>
+  </div>
+
+  <h2 id="s-5-6">5.6 Mis pedidos</h2>
+  <p>El historial de pedidos permite al cliente consultar sus compras y el estado de cada una. Se accede desde el menú de usuario, opción <strong>Mis pedidos</strong>.</p>
+  <figure class="figure">
+    <img src="capturas/28-pedidos.jpg" alt="Historial de pedidos">
+    <figcaption><span class="fig-n">Figura 32.</span> Captura del sistema: historial de pedidos del cliente.</figcaption>
+  </figure>
+  <p>Cada pedido muestra el número, la fecha, el total y el estado. El enlace <strong>Ver</strong> abre la ficha con los productos, las cantidades, los precios y el total, y permite descargar la factura. El cliente solo puede consultar sus propios pedidos: si intenta abrir el pedido de otra persona, el sistema deniega el acceso.</p>
+
+  <h2 id="s-5-7">5.7 Factura en PDF</h2>
+  <p>Cada venta genera una factura descargable en formato PDF. El cliente la obtiene desde el detalle de su pedido; el administrador puede descargarla desde el detalle de cualquier venta.</p>
+  <figure class="figure narrow">
+    <img src="capturas/20-factura.jpg" alt="Factura en PDF">
+    <figcaption><span class="fig-n">Figura 33.</span> Captura del sistema: factura de una venta en formato PDF.</figcaption>
+  </figure>
+  <p>La factura incluye los datos de la tienda, el número de factura, la fecha, el estado del pedido, los datos del cliente, el detalle de productos con cantidad, precio unitario y subtotal, y el total general.</p>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>El número de factura coincide con el número interno de la venta. Es un documento de control interno y no sustituye los comprobantes fiscales exigidos por la legislación.</p>
+  </div>
+</section>
+
+<!-- ===================== CAPÍTULO VI ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo VI</div>
+    <h1>Consultas, historial y reportes</h1>
+    <p class="chapter-lead">Cómo localizar información, interpretar los estados y obtener documentos de control.</p>
+  </div>
+
+  <p>Además de registrar operaciones, el sistema conserva el historial necesario para responder consultas y respaldar la gestión. Este capítulo explica dónde encontrar cada dato y cómo interpretarlo.</p>
+
+  <h2 id="s-6-1">6.1 Consulta de ventas</h2>
+  <p>El módulo <strong>Ventas</strong> es el punto de consulta de todos los pedidos. El listado se ordena de la venta más reciente a la más antigua y muestra veinte registros por página. Para localizar una venta anterior, avance o retroceda con la paginación inferior.</p>
+  <p>Cada fila ofrece el número de venta, el cliente, la fecha y hora, el total, el estado y las acciones disponibles. El botón <strong>Detalle</strong> abre la ficha completa; desde allí se consultan los productos, se cambia el estado y se descarga la factura.</p>
+  <p>Si conoce el nombre del comprador, el módulo <strong>Clientes</strong> permite consultar sus datos de contacto. El historial de pedidos, en cambio, se revisa en <strong>Ventas</strong>, donde cada fila identifica al cliente.</p>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>El listado no cuenta con un buscador por texto. Para encontrar una venta específica utilice la paginación y revise la columna del cliente.</p>
+  </div>
+
+  <h2 id="s-6-2">6.2 Historial de movimientos</h2>
+  <p>El historial de inventario conserva cada entrada y salida manual, con la fecha, el producto, la cantidad, el motivo y el usuario responsable. Los movimientos se ordenan del más reciente al más antiguo y se paginan de veinte en veinte.</p>
+  <p>Este historial permite reconstruir por qué un producto tiene determinada existencia. Un movimiento de <strong>entrada</strong> incrementa el stock y suele corresponder a una compra a proveedor, una devolución o un ajuste positivo. Un movimiento de <strong>salida</strong> lo reduce y suele corresponder a una merma, un ajuste negativo o una devolución al proveedor.</p>
+  <div class="callout">
+    <div class="callout-title">Recomendación</div>
+    <p>Escriba siempre un motivo claro y verificable. Un historial con motivos genéricos pierde utilidad cuando sea necesario auditar diferencias de inventario.</p>
+  </div>
+
+  <h2 id="s-6-3">6.3 Estados de una venta</h2>
+  <p>El estado indica en qué punto del proceso se encuentra un pedido. Es visible para el administrador y para el cliente, y determina qué acciones rápidas se ofrecen en el listado.</p>
+  <table>
+    <thead><tr><th style="width:20%">Estado</th><th style="width:44%">Significado</th><th>Cómo se asigna</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pendiente</strong></td><td>El pedido fue registrado y espera la confirmación de la tienda.</td><td>Automáticamente al confirmar una compra en línea.</td></tr>
+      <tr><td><strong>Confirmado</strong></td><td>La tienda aceptó el pedido y lo prepara para el envío.</td><td>Al confirmar un pedido pendiente o al registrar una venta presencial.</td></tr>
+      <tr><td><strong>Enviado</strong></td><td>El pedido salió hacia el cliente.</td><td>Acción manual del administrador.</td></tr>
+      <tr><td><strong>Entregado</strong></td><td>El cliente recibió el pedido. Es el estado final de una venta exitosa.</td><td>Acción manual del administrador.</td></tr>
+      <tr><td><strong>Cancelado</strong></td><td>El pedido no se concretó. Se conserva para consulta, pero no se contabiliza.</td><td>Acción manual del administrador.</td></tr>
+    </tbody>
+  </table>
+  <p>El flujo recomendado es <strong>Pendiente → Confirmado → Enviado → Entregado</strong>. La cancelación puede aplicarse mientras el pedido no haya sido entregado. El detalle de la venta permite seleccionar cualquiera de los cinco estados; utilice esa opción solo para corregir un registro, no para saltar etapas del proceso.</p>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>Las ventas pendientes, confirmadas, enviadas y entregadas se incluyen en el reporte mensual y en el cierre diario. Solo las ventas canceladas se excluyen. Mantenga los estados actualizados para que los reportes reflejen la operación real.</p>
+  </div>
+
+  <h2 id="s-6-4">6.4 Reportes del sistema</h2>
+  <p>El sistema genera tres documentos PDF con propósitos distintos. La siguiente tabla resume su alcance.</p>
+  <table>
+    <thead><tr><th style="width:22%">Documento</th><th style="width:40%">Contenido</th><th>Alcance</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Factura</strong></td><td>Datos de la tienda y del cliente, número de factura, fecha, estado, productos, cantidades, precios y total.</td><td>Una venta específica. Disponible para el administrador y para el cliente dueño del pedido.</td></tr>
+      <tr><td><strong>Reporte mensual</strong></td><td>Total vendido, cantidad de ventas, días con ventas y detalle agrupado por día.</td><td>Un mes calendario. Excluye ventas canceladas.</td></tr>
+      <tr><td><strong>Cierre diario</strong></td><td>Total del día, cantidad de ventas y detalle de cada operación con hora, cliente y productos.</td><td>Una fecha. Excluye ventas canceladas. Solo un cierre por día.</td></tr>
+    </tbody>
+  </table>
+  <p>Los documentos se generan en el momento de la descarga. Si una venta cambia de estado después de emitido un reporte o un cierre, el documento anterior no se actualiza: descárguelo nuevamente si necesita reflejar el cambio. Conserve los PDF de cierre como respaldo de cada jornada.</p>
+</section>
+
+<!-- ===================== CAPÍTULO VII ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo VII</div>
+    <h1>Administración del sistema</h1>
+    <p class="chapter-lead">Cuentas, datos maestros, respaldo y prácticas recomendadas para una operación ordenada.</p>
+  </div>
+
+  <p>Este capítulo reúne las tareas de mantenimiento que aseguran la continuidad del sistema. No forman parte de la operación diaria, pero son necesarias para proteger la información y evitar errores acumulados.</p>
+
+  <h2 id="s-7-1">7.1 Usuarios y credenciales</h2>
+  <p>El sistema distingue dos roles: administrador y cliente. El rol se asigna al crear la cuenta y no se modifica desde la interfaz. Las cuentas de cliente se crean mediante el formulario público de registro; las cuentas administrativas se aprovisionan durante la instalación o mediante el equipo de desarrollo.</p>
+  <table>
+    <thead><tr><th style="width:24%">Cuenta demo</th><th style="width:30%">Correo</th><th style="width:18%">Contraseña</th><th>Rol</th></tr></thead>
+    <tbody>
+      <tr><td>Administrador</td><td>admin@hechizos.com</td><td>password</td><td>Administrador</td></tr>
+      <tr><td>María García</td><td>maria@test.com</td><td>password</td><td>Cliente</td></tr>
+      <tr><td>Carlos Mendoza</td><td>carlos@test.com</td><td>password</td><td>Cliente</td></tr>
+    </tbody>
+  </table>
+  <p>Cada usuario puede cambiar su contraseña desde <strong>Perfil → Actualizar contraseña</strong>, indicando la contraseña actual. Si un cliente olvida su clave, puede restablecerla desde la pantalla de inicio de sesión. El administrador no puede consultar las contraseñas almacenadas, ya que se guardan cifradas.</p>
+  <div class="callout">
+    <div class="callout-title">Importante</div>
+    <p>Eliminar una cuenta es una acción irreversible y está disponible en el perfil del propio usuario. Al eliminar una cuenta de cliente se eliminan también sus pedidos y facturas, lo que altera el historial y los reportes. Antes de eliminar una cuenta con compras, evalúe conservarla o desactivar su uso por otro medio.</p>
+  </div>
+
+  <h2 id="s-7-2">7.2 Datos maestros</h2>
+  <p>Se denominan datos maestros los registros que alimentan la operación: productos, categorías, precios, stock mínimo y datos de clientes. Su calidad determina la confiabilidad de las ventas y los reportes.</p>
+  <ul>
+    <li><strong>Productos:</strong> mantenga nombres descriptivos y únicos, precios vigentes e imágenes actualizadas. Un producto inactivo deja de mostrarse en el catálogo, pero conserva su historial.</li>
+    <li><strong>Categorías:</strong> use pocas categorías bien definidas. Una categoría con productos asociados no puede eliminarse; en ese caso reasigne los productos o desactívela.</li>
+    <li><strong>Stock mínimo:</strong> ajústelo según el tiempo de reposición de cada artículo. Un umbral demasiado bajo genera quiebres de stock; uno demasiado alto produce alertas innecesarias.</li>
+    <li><strong>Datos de clientes:</strong> solicite corrección de datos cuando sea necesario y no modifique la información sin autorización del titular.</li>
+  </ul>
+  <p>Los cambios en productos y precios no alteran las ventas ya registradas: cada línea de venta conserva el precio unitario aplicado en el momento de la operación. Por eso es importante revisar los precios antes de registrar una venta y no después.</p>
+
+  <h2 id="s-7-3">7.3 Respaldo de la información</h2>
+  <p>La información del sistema reside en la base de datos y en el almacenamiento de archivos. Para un respaldo completo deben incluirse ambos componentes:</p>
+  <ul>
+    <li><strong>Base de datos:</strong> usuarios, productos, categorías, ventas, movimientos de inventario y cierres.</li>
+    <li><strong>Archivos:</strong> imágenes de productos y documentos PDF de cierres guardados por la aplicación.</li>
+  </ul>
+  <p>Realice respaldos periódicos, especialmente antes de actualizaciones, cambios masivos de precios o migraciones. Verifique que el respaldo pueda restaurarse y conserve una copia fuera del servidor principal. El acceso a los respaldos debe estar restringido al personal autorizado.</p>
+  <div class="callout">
+    <div class="callout-title">Nota</div>
+    <p>La frecuencia del respaldo depende del volumen de operaciones. Para una tienda con ventas diarias se recomienda al menos un respaldo diario de la base de datos y uno semanal de los archivos.</p>
+  </div>
+
+  <h2 id="s-7-4">7.4 Buenas prácticas</h2>
+  <ul>
+    <li>Revise el panel de control al inicio y al cierre de la jornada.</li>
+    <li>Confirme o cancele los pedidos pendientes el mismo día en que se reciben.</li>
+    <li>Registre el cierre diario al finalizar las operaciones, no antes.</li>
+    <li>Documente cada ajuste de inventario con un motivo específico.</li>
+    <li>Actualice precios y disponibilidad antes de promocionar productos.</li>
+    <li>Descargue y archive el reporte mensual y los cierres diarios.</li>
+    <li>Utilice una cuenta nominal por persona; evite compartir credenciales.</li>
+    <li>No elimine productos, categorías ni cuentas con historial: desactívelos.</li>
+    <li>Capacite al personal nuevo con este manual antes de habilitar su acceso.</li>
+    <li>Conserve este documento y el registro de cambios junto con la documentación del sistema.</li>
+  </ul>
+</section>
+
+<!-- ===================== CAPÍTULO VIII ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo VIII</div>
+    <h1>Preguntas frecuentes</h1>
+    <p class="chapter-lead">Respuestas a las dudas más comunes sobre el acceso, la operación y los reportes.</p>
+  </div>
+
+  <h2 id="s-8-1">8.1 Acceso y cuenta</h2>
+  <dl class="faq">
+    <dt>Olvidé mi contraseña. ¿Qué hago?</dt>
+    <dd>En la pantalla de inicio de sesión haga clic en <strong>¿Olvidaste tu contraseña?</strong>, escriba su correo y siga el enlace del mensaje. Si no recibe el correo, revise la carpeta de correo no deseado y confirme con la tienda que su dirección está registrada correctamente.</dd>
+
+    <dt>¿Por qué el sistema rechaza mi correo y contraseña?</dt>
+    <dd>Verifique que el correo esté escrito completo, sin espacios y con el dominio correcto. Confirme que las mayúsculas y minúsculas de la contraseña sean las mismas que definió. Después de varios intentos fallidos, el sistema puede bloquear temporalmente el acceso por seguridad; espere un momento y vuelva a intentarlo.</dd>
+
+    <dt>¿Puedo cambiar mi correo electrónico?</dt>
+    <dd>Sí. Ingrese a <strong>Perfil</strong>, modifique el campo correspondiente y guarde los cambios. El nuevo correo será el identificador de acceso en la siguiente sesión.</dd>
+
+    <dt>¿El administrador puede ver mi contraseña?</dt>
+    <dd>No. Las contraseñas se almacenan cifradas y no pueden consultarse desde la interfaz. Si la olvida, debe restablecerla mediante el enlace de recuperación.</dd>
+
+    <dt>¿Puedo eliminar mi cuenta?</dt>
+    <dd>La opción está disponible en el perfil, en la sección de eliminación de cuenta. Es irreversible y elimina también el historial de pedidos asociado. Si desea conservar sus compras, no elimine la cuenta.</dd>
+
+    <dt>¿Cómo obtengo una cuenta de administrador?</dt>
+    <dd>El registro público solo crea cuentas de cliente. Las cuentas administrativas las asigna el responsable del sistema o el equipo de desarrollo. No comparta una cuenta de administrador entre varias personas.</dd>
+  </dl>
+
+  <h2 id="s-8-2">8.2 Operación diaria</h2>
+  <dl class="faq">
+    <dt>¿Cómo aumento el stock de un producto?</dt>
+    <dd>Registre una entrada desde <strong>Inventario → Nuevo movimiento</strong>. No modifique el stock editando el producto: el formulario de edición no reemplaza el historial de movimientos. Indique la cantidad y el motivo para mantener la trazabilidad.</dd>
+
+    <dt>¿Por qué cambió el stock sin que yo lo modificara?</dt>
+    <dd>El stock se descuenta automáticamente al confirmar una compra en línea o al registrar una venta presencial. También cambia cuando otro administrador registra un movimiento de inventario. Revise el historial y el listado de ventas para identificar el origen.</dd>
+
+    <dt>¿Cómo registro una venta a una persona sin cuenta?</dt>
+    <dd>Utilice <strong>Ventas → Nueva venta</strong>. La operación queda asociada al usuario administrador que la registra y se crea en estado confirmado, sin necesidad de una cuenta de cliente.</dd>
+
+    <dt>¿Por qué un producto no aparece en el catálogo?</dt>
+    <dd>Probablemente esté marcado como inactivo. Ábralo en <strong>Productos → Editar</strong> y verifique la casilla <strong>Producto activo</strong>. Si está activo y aun así no lo encuentra, revise que la búsqueda o el filtro de categoría no lo estén excluyendo.</dd>
+
+    <dt>¿Cómo elimino un producto?</dt>
+    <dd>El sistema no ofrece eliminación de productos desde la interfaz. Para retirarlo de la venta, desmarque <strong>Producto activo</strong>. Así se conserva el historial de ventas y facturas.</dd>
+
+    <dt>¿Cómo cancelo una venta?</dt>
+    <dd>En <strong>Ventas</strong>, use la acción <strong>Cancelar</strong> o cambie el estado desde el detalle. La venta se excluye de los reportes, pero el stock no se repone automáticamente. Si la mercancía regresa, registre una entrada manual en inventario.</dd>
+
+    <dt>¿Puedo modificar los productos o el total de una venta ya registrada?</dt>
+    <dd>No. Solo es posible cambiar el estado. Si la venta tiene un error, cancélela y registre una nueva con los datos correctos.</dd>
+
+    <dt>¿Las ventas presenciales descuentan inventario?</dt>
+    <dd>Sí. Al registrar la venta se descuenta la cantidad de cada producto, igual que en una compra en línea.</dd>
+  </dl>
+
+  <h2 id="s-8-3">8.3 Reportes y cierres</h2>
+  <dl class="faq">
+    <dt>¿Por qué una venta no aparece en el reporte mensual?</dt>
+    <dd>El reporte excluye las ventas canceladas y se calcula por la fecha de registro. Verifique que la venta pertenezca al mes seleccionado y que su estado no sea cancelado.</dd>
+
+    <dt>¿Por qué el total del panel no coincide con el cierre?</dt>
+    <dd>El indicador <strong>Ingresos hoy</strong> suma todas las ventas registradas en la fecha, incluidas las canceladas. El cierre y el reporte mensual excluyen las canceladas. Si existen ventas canceladas en el día, los montos pueden diferir.</dd>
+
+    <dt>¿Puedo realizar dos cierres del mismo día?</dt>
+    <dd>No. El sistema permite un solo cierre por fecha y muestra un mensaje de error si intenta registrarlo nuevamente.</dd>
+
+    <dt>¿Puedo cerrar un día anterior?</dt>
+    <dd>El cierre se realiza desde el panel de control y corresponde al día en curso. La interfaz no ofrece cierres retroactivos; si detecta un día sin cierre, consulte con el responsable del sistema.</dd>
+
+    <dt>¿Qué ocurre si cierro antes de terminar el día?</dt>
+    <dd>Las ventas posteriores no se incluyen en el documento ya emitido y no es posible generar un segundo cierre para esa fecha. Realice el cierre al finalizar la jornada.</dd>
+
+    <dt>¿El cierre impide seguir vendiendo?</dt>
+    <dd>No. El cierre es un documento de control y no bloquea ventas, inventario ni otras operaciones.</dd>
+
+    <dt>¿Dónde descargo la factura de una venta?</dt>
+    <dd>El administrador la descarga desde el detalle de la venta. El cliente la obtiene desde <strong>Mis pedidos → Ver → Descargar factura</strong>.</dd>
+
+    <dt>¿Los documentos PDF se guardan en el sistema?</dt>
+    <dd>Los cierres diarios se archivan y pueden descargarse nuevamente desde el historial. Las facturas y el reporte mensual se generan en el momento de la descarga.</dd>
+  </dl>
+</section>
+
+<!-- ===================== CAPÍTULO IX ===================== -->
+<section class="chapter">
+  <div class="chapter-head">
+    <div class="kicker">Capítulo IX</div>
+    <h1>Glosario</h1>
+    <p class="chapter-lead">Términos utilizados a lo largo del manual.</p>
+  </div>
+
+  <h2 id="s-9-1">9.1 Términos del sistema</h2>
+  <table class="glossary">
+    <tbody>
+      <tr><td><strong>Administrador</strong></td><td>Usuario con acceso a todos los módulos de gestión: productos, categorías, inventario, clientes, ventas, reportes y cierres.</td></tr>
+      <tr><td><strong>Carrito</strong></td><td>Espacio temporal donde el cliente reúne los productos que desea comprar antes de confirmar el pedido.</td></tr>
+      <tr><td><strong>Categoría</strong></td><td>Agrupación de productos que facilita la organización del catálogo y los filtros de búsqueda.</td></tr>
+      <tr><td><strong>Cierre diario</strong></td><td>Documento que resume las ventas de una fecha y se conserva como respaldo de la jornada.</td></tr>
+      <tr><td><strong>Cliente</strong></td><td>Usuario registrado que compra en línea y consulta sus pedidos. No accede a los módulos administrativos.</td></tr>
+      <tr><td><strong>Estado</strong></td><td>Situación de un pedido: pendiente, confirmado, enviado, entregado o cancelado.</td></tr>
+      <tr><td><strong>Factura</strong></td><td>Documento PDF con el detalle de una venta, su cliente, sus productos y su total.</td></tr>
+      <tr><td><strong>Inventario</strong></td><td>Conjunto de existencias disponibles de cada producto.</td></tr>
+      <tr><td><strong>Movimiento de entrada</strong></td><td>Registro que aumenta el stock de un producto, por reposición, devolución o ajuste positivo.</td></tr>
+      <tr><td><strong>Movimiento de salida</strong></td><td>Registro que reduce el stock de un producto, por merma, ajuste negativo o devolución al proveedor.</td></tr>
+      <tr><td><strong>Pedido</strong></td><td>Solicitud de compra confirmada por un cliente. En el sistema se almacena como una venta.</td></tr>
+      <tr><td><strong>Producto activo</strong></td><td>Producto publicado en el catálogo y disponible para la venta, siempre que tenga existencias.</td></tr>
+      <tr><td><strong>Producto inactivo</strong></td><td>Producto retirado de la vitrina pública que conserva su historial en ventas y reportes.</td></tr>
+      <tr><td><strong>Reporte mensual</strong></td><td>Documento PDF que consolida las ventas de un mes calendario, excluyendo las canceladas.</td></tr>
+      <tr><td><strong>Rol</strong></td><td>Perfil de acceso asignado a una cuenta: administrador o cliente.</td></tr>
+      <tr><td><strong>Stock</strong></td><td>Cantidad disponible de un producto en inventario.</td></tr>
+      <tr><td><strong>Stock mínimo</strong></td><td>Umbral configurado por producto para emitir la alerta de stock bajo cuando la existencia es igual o menor.</td></tr>
+      <tr><td><strong>Venta</strong></td><td>Operación económica que registra los productos adquiridos, su precio y su total.</td></tr>
+      <tr><td><strong>Venta presencial</strong></td><td>Venta registrada por el administrador para un comprador que no necesariamente tiene cuenta en el sistema.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="end-note">
+    <p><strong>Fin del documento.</strong> Este manual documenta la versión 1.0 del Sistema de Gestión de Inventario y Ventas de Hechizos Diseños y Complementos.</p>
+  </div>
+</section>
+
+
+</body>
+</html>
