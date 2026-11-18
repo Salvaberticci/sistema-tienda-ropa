@@ -29,10 +29,23 @@ class Producto extends Model
 
     public function getImagenUrlAttribute()
     {
-        if ($this->imagen) {
-            return Storage::disk(config('filesystems.product_images_disk', 'public'))->url($this->imagen);
+        if (! $this->imagen) {
+            return null;
         }
-        return null;
+
+        $diskName = config('filesystems.product_images_disk', 'public');
+        $disk = Storage::disk($diskName);
+
+        // Hide image references whose file is no longer available (for example,
+        // files uploaded before object storage was attached) and show the
+        // catalog placeholder instead of a broken image.
+        $exists = cache()->remember(
+            'producto-imagen:' . sha1($diskName . '|' . $this->imagen),
+            now()->addHour(),
+            fn () => $disk->exists($this->imagen)
+        );
+
+        return $exists ? $disk->url($this->imagen) : null;
     }
 
     public function scopeActivos($query)
