@@ -75,7 +75,7 @@ class CierreDiarioController extends Controller
 
         $pdf = Pdf::loadView('admin.cierres.pdf', compact('ventas', 'totalVentas', 'cantidadVentas', 'fecha'));
         $pdfPath = "cierres/cierre-{$fecha->format('Y-m-d')}.pdf";
-        Storage::put($pdfPath, $pdf->output());
+        Storage::disk('local')->put($pdfPath, $pdf->output());
 
         CierreDiario::create([
             'fecha' => $fecha,
@@ -91,7 +91,7 @@ class CierreDiarioController extends Controller
 
     public function download(CierreDiario $cierre)
     {
-        if (!$cierre->pdf_path || !Storage::exists($cierre->pdf_path)) {
+        if (!$cierre->pdf_path || !Storage::disk('local')->exists($cierre->pdf_path)) {
             $ventas = Venta::with('user', 'productos.producto')
                 ->whereDate('created_at', $cierre->fecha)
                 ->where('estado', '!=', 'cancelado')
@@ -106,6 +106,6 @@ class CierreDiarioController extends Controller
             return $pdf->download("cierre-{$cierre->fecha->format('Y-m-d')}.pdf");
         }
 
-        return Storage::download($cierre->pdf_path, "cierre-{$cierre->fecha->format('Y-m-d')}.pdf");
+        return Storage::disk('local')->download($cierre->pdf_path, "cierre-{$cierre->fecha->format('Y-m-d')}.pdf");
     }
 }
