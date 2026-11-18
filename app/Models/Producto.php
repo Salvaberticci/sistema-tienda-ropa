@@ -30,7 +30,7 @@ class Producto extends Model
     public function getImagenUrlAttribute()
     {
         if ($this->imagen) {
-            return Storage::url($this->imagen);
+            return Storage::disk(config('filesystems.product_images_disk', 'public'))->url($this->imagen);
         }
         return null;
     }

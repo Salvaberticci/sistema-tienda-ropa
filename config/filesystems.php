@@ -17,6 +17,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Product Images Disk
+    |--------------------------------------------------------------------------
+    |
+    | Product uploads must use a persistent disk in production. Locally the
+    | public disk is used (storage/app/public + storage:link); on Laravel
+    | Cloud, set PRODUCT_IMAGES_DISK to the object storage disk name.
+    |
+    */
+
+    'product_images_disk' => env('PRODUCT_IMAGES_DISK', 'public'),
+
+    /*
+    |--------------------------------------------------------------------------
     | Filesystem Disks
     |--------------------------------------------------------------------------
     |
@@ -51,11 +64,11 @@ return [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
             'secret' => env('AWS_SECRET_ACCESS_KEY'),
-            'region' => env('AWS_DEFAULT_REGION'),
+            'region' => env('AWS_DEFAULT_REGION', env('AWS_REGION', 'us-east-1')),
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
-            'endpoint' => env('AWS_ENDPOINT'),
-            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'endpoint' => env('AWS_ENDPOINT', env('AWS_ENDPOINT_URL')),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', true),
             'throw' => false,
             'report' => false,
         ],

@@ -37,7 +37,7 @@ class ProductoController extends Controller
         ]);
 
         if ($request->hasFile('imagen')) {
-            $validated['imagen'] = $request->file('imagen')->store('productos', 'public');
+            $validated['imagen'] = $request->file('imagen')->store('productos', $this->imageDisk());
         }
 
         Producto::create($validated);
@@ -67,9 +67,9 @@ class ProductoController extends Controller
 
         if ($request->hasFile('imagen')) {
             if ($producto->imagen) {
-                Storage::disk('public')->delete($producto->imagen);
+                Storage::disk($this->imageDisk())->delete($producto->imagen);
             }
-            $validated['imagen'] = $request->file('imagen')->store('productos', 'public');
+            $validated['imagen'] = $request->file('imagen')->store('productos', $this->imageDisk());
         }
 
         $producto->update($validated);
@@ -81,12 +81,17 @@ class ProductoController extends Controller
     public function destroy(Producto $producto): RedirectResponse
     {
         if ($producto->imagen) {
-            Storage::disk('public')->delete($producto->imagen);
+            Storage::disk($this->imageDisk())->delete($producto->imagen);
         }
 
         $producto->delete();
 
         return redirect()->route('admin.productos.index')
             ->with('success', 'Producto eliminado exitosamente.');
+    }
+
+    private function imageDisk(): string
+    {
+        return config('filesystems.product_images_disk', 'public');
     }
 }
